@@ -153,18 +153,19 @@ button { font: inherit; color: inherit; }
 .rule-2 { height: 6px; border-top: 2px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); }
 .dateline {
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-areas: "vol est" "date date";
-  align-items: center;
-  row-gap: 5px;
-  padding: 9px 1px 10px;
+  grid-template-columns: auto 1fr auto;   /* one line, like the printed masthead */
+  grid-template-areas: "vol date est";
+  align-items: baseline;
+  column-gap: clamp(3px, 1.6vw, 6px);
+  padding: 8px 1px 9px;
+  white-space: nowrap;
   font-family: var(--f-date);
   color: var(--cream);
 }
 .dl-vol { grid-area: vol; text-align: left; }
 .dl-est { grid-area: est; text-align: right; }
-.dl-date { grid-area: date; font-weight: 400; font-size: 13px; letter-spacing: .01em; }
-.dl-vol, .dl-est { font-weight: 500; font-size: 10.5px; letter-spacing: .08em; }
+.dl-date { grid-area: date; text-align: center; font-weight: 400; font-size: clamp(8px, 2.65vw, 13px); }
+.dl-vol, .dl-est { font-weight: 500; font-size: clamp(6.5px, 2.05vw, 10.5px); letter-spacing: .05em; }
 
 .title-row { display: flex; align-items: center; gap: 18px; margin: 24px 0 0; }
 .title-line { flex: 1; height: 1px; background: rgba(239, 233, 220, .5); }
@@ -274,6 +275,14 @@ html[lang="ru"] .dish-name { font-size: 17.5px; }
   letter-spacing: .02em;
   font-variant-numeric: lining-nums tabular-nums;
   color: var(--cream);
+}
+.dish-variant {
+  display: block;
+  margin-top: 1px;
+  font-style: italic;
+  font-size: 15.5px;
+  line-height: 1.2;
+  color: var(--mist);
 }
 .dish-desc {
   display: block;
@@ -387,7 +396,9 @@ html[lang="ru"] .index-scroll button { font-size: 17.5px; padding: 14px 0 16px; 
   .sheet { max-width: 680px; margin: 20px auto; padding: 28px 40px 30px; min-height: 0; }
   .lang--mast { top: -18px; right: -28px; }
   .logo { width: 150px; }
-  .dateline { grid-template-columns: 1fr auto 1fr; grid-template-areas: "vol date est"; }
+  .dateline { grid-template-columns: 1fr auto 1fr; }
+  .dl-date { font-size: 13px; }
+  .dl-vol, .dl-est { font-size: 10.5px; letter-spacing: .08em; }
   .menu-title { font-size: 40px; }
 }
 
@@ -416,7 +427,7 @@ html[lang="ru"] .index-scroll button { font-size: 17.5px; padding: 14px 0 16px; 
   }
   .col-mid::before { left: -22px; }
   .col-mid::after { right: -22px; }
-  .col-mid .sec { height: 100%; }
+  .col .sec + .sec { margin-top: 34px; }
   .sec-title { font-size: 31px; }
   html[lang="ru"] .sec-title { font-size: 36px; }
   .sig-frame { padding: 22px 26px 24px; }
@@ -592,6 +603,7 @@ html[lang="ru"] .ph-cap { font-size: 13px; letter-spacing: .26em; text-indent: .
 }
 html[lang="ru"] .m-name { font-size: 26px; }
 .m-rule { height: 4px; margin: 14px 0 12px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); transform-origin: 0 50%; }
+.m-variant { margin: -4px 0 8px; font-style: italic; font-size: 17px; color: var(--mist); }
 .m-desc { margin: 0; font-size: 19.5px; line-height: 1.32; color: var(--paper); }
 .m-price { display: flex; align-items: baseline; margin: 16px 0 0; }
 .m-price .leader { margin-left: 0; }
@@ -639,7 +651,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
 @media (hover: hover) and (pointer: fine) {
   .lb-arrow:not(:disabled):hover { border-color: var(--cream); }
 }
-.ticks { display: flex; align-items: flex-end; height: 18px; gap: 5px; }
+.ticks { display: flex; align-items: flex-end; height: 18px; gap: 4px; }
 .ticks i {
   display: block;
   width: 1px;
@@ -647,7 +659,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
   background: rgba(239, 233, 220, .35);
   transition: height 320ms var(--ease-out), background-color 320ms ease;
 }
-.ticks i.gap { margin-left: 7px; }
+.ticks i.gap { margin-left: 6px; }
 .ticks i.on { height: 18px; background: var(--cream); }
 
 @media (max-height: 640px) {
@@ -688,6 +700,302 @@ html[lang="ru"] .m-name { font-size: 26px; }
 
 <script type="application/json" id="menu-data">
 {
+ "dishes": {
+  "salmon-benedict": {
+   "price": "00 000",
+   "ru": [
+    "Бенедикт с лососем",
+    "Бриошь, слабосолёный лосось, яйцо пашот, авокадо, крем-чиз, голландез"
+   ],
+   "en": [
+    "Salmon Benedict",
+    "Brioche, cured salmon, poached egg, avocado, cream cheese, hollandaise"
+   ]
+  },
+  "eel-benedict": {
+   "price": "00 000",
+   "ru": [
+    "Бенедикт с угрём",
+    "Бриошь, угорь, яйцо пашот, авокадо, крем-чиз, голландез"
+   ],
+   "en": [
+    "Eel Benedict",
+    "Brioche, eel, poached egg, avocado, cream cheese, hollandaise"
+   ]
+  },
+  "yogurt-bowl": {
+   "price": "00 000",
+   "ru": [
+    "Йогурт-боул",
+    "Йогурт, творог, гранола, банан, голубика, малина"
+   ],
+   "en": [
+    "Yogurt Bowl",
+    "Yogurt, cottage cheese, granola, banana, blueberries, raspberries"
+   ]
+  },
+  "palinger-brunch": {
+   "price": "00 000",
+   "ru": [
+    "Палингер Бранч",
+    "Яйца пашот, слабосолёный лосось, угорь, биттербаллен, авокадо, гауда, ржаной тост"
+   ],
+   "en": [
+    "Palinger Brunch",
+    "Poached eggs, cured salmon, eel, bitterballen, avocado, Gouda, rye toast"
+   ]
+  },
+  "dutch-scramble": {
+   "price": "00 000",
+   "ru": [
+    "Голландский скрембл",
+    "Яйца, шпинат, томат, гауда, авокадо, кинза, бородинский хлеб"
+   ],
+   "en": [
+    "Dutch Scramble",
+    "Eggs, spinach, tomato, Gouda, avocado, cilantro, rye bread"
+   ]
+  },
+  "english-breakfast": {
+   "price": "00 000",
+   "ru": [
+    "Английский завтрак",
+    "Яйца, говяжьи колбаски, говяжий бекон, фасоль в томатном соусе, грибы, томат, тост"
+   ],
+   "en": [
+    "English Breakfast",
+    "Eggs, beef sausages, beef bacon, baked beans, mushrooms, tomato, toast"
+   ]
+  },
+  "tomato-bruschetta": {
+   "price": "00 000",
+   "ru": [
+    "Брускетта с томатами",
+    "Розовые томаты и черри, страчателла, авокадо, бальзамик, базилик"
+   ],
+   "en": [
+    "Tomato Bruschetta",
+    "Pink & cherry tomatoes, stracciatella, avocado, balsamic, basil"
+   ]
+  },
+  "cottage-pancakes": {
+   "price": "00 000",
+   "ru": [
+    "Творожные оладьи с фруктами",
+    "Творог, сметана, свежие фрукты, ягоды, мёд"
+   ],
+   "en": [
+    "Cottage Cheese Pancakes with Fruit",
+    "Cottage cheese, sour cream, fresh fruit, berries, honey"
+   ]
+  },
+  "chuka-salad": {
+   "price": "00 000",
+   "ru": [
+    "Чука-салат с угрём",
+    "Угорь, водоросли чука, апельсин, авокадо, черри, руккола, соус унаги, кунжут"
+   ],
+   "en": [
+    "Chuka Salad with Eel",
+    "Eel, chuka seaweed, orange, avocado, cherry tomatoes, rocket, unagi sauce, sesame"
+   ]
+  },
+  "tomato-mozzarella": {
+   "price": "00 000",
+   "ru": [
+    "Томаты с мини-моцареллой",
+    "Розовые томаты и черри, шпинат, мини-моцарелла, песто, кедровый орех, бальзамик"
+   ],
+   "en": [
+    "Tomatoes with Mini Mozzarella",
+    "Pink & cherry tomatoes, spinach, mini mozzarella, pesto, pine nuts, balsamic"
+   ]
+  },
+  "stracciatella": {
+   "price": "00 000",
+   "ru": [
+    "Салат со страчателлой",
+    "Страчателла, розовый томат, абрикос, авокадо, романо, зернистая горчица"
+   ],
+   "en": [
+    "Stracciatella Salad",
+    "Stracciatella, pink tomato, apricot, avocado, romaine, grain mustard"
+   ]
+  },
+  "palinger-burger": {
+   "price": "00 000",
+   "variant": {
+    "ru": "классический / пикантный",
+    "en": "classic / spicy"
+   },
+   "ru": [
+    "Палингер Бургер",
+    "Говядина, сыр, грибы, маринованные огурцы, халапеньо"
+   ],
+   "en": [
+    "Palinger Burger",
+    "Beef, cheese, mushrooms, pickles, jalapeño"
+   ]
+  },
+  "smash-burger": {
+   "price": "00 000",
+   "ru": [
+    "Смеш Бургер",
+    "Две говяжьи смеш-котлеты, чеддер, карамелизированный лук, маринованные огурцы, фирменный соус"
+   ],
+   "en": [
+    "Smash Burger",
+    "Two smashed beef patties, cheddar, caramelised onion, pickles, house sauce"
+   ]
+  },
+  "medallion-burger": {
+   "price": "00 000",
+   "ru": [
+    "Бургер Медальон",
+    "Медальон из говяжьей вырезки, гауда, грибы, красный лук, руккола"
+   ],
+   "en": [
+    "Medallion Burger",
+    "Beef tenderloin medallion, Gouda, mushrooms, red onion, rocket"
+   ]
+  },
+  "fries": {
+   "price": "00 000",
+   "ru": [
+    "Фри",
+    "Картофель фри, морская соль, майонез"
+   ],
+   "en": [
+    "Fries",
+    "French fries, sea salt, mayonnaise"
+   ]
+  },
+  "country-potatoes": {
+   "price": "00 000",
+   "ru": [
+    "Картофель по-деревенски",
+    "Картофельные дольки, чеснок, розмарин, паприка, сметанный соус"
+   ],
+   "en": [
+    "Country-Style Potatoes",
+    "Potato wedges, garlic, rosemary, paprika, sour cream sauce"
+   ]
+  },
+  "atlantic-soup": {
+   "price": "00 000",
+   "ru": [
+    "Атлантический суп",
+    "Лосось, креветки, болгарский перец, сельдерей, брокколи, рыбный бульон"
+   ],
+   "en": [
+    "Atlantic Soup",
+    "Salmon, shrimp, bell pepper, celery, broccoli, fish broth"
+   ]
+  },
+  "cheese-soup": {
+   "price": "00 000",
+   "ru": [
+    "Сырный крем-суп",
+    "Плавленый сыр, крем-чиз, картофель, сливки, бульон из угря, гриссини"
+   ],
+   "en": [
+    "Cheese Cream Soup",
+    "Melted cheese, cream cheese, potato, cream, eel broth, grissini"
+   ]
+  },
+  "salmon-steak": {
+   "price": "00 000",
+   "ru": [
+    "Стейк из лосося",
+    "Филе лосося 180 г, спаржа, брокколи, черри, руккола, лимонный дрессинг"
+   ],
+   "en": [
+    "Salmon Steak",
+    "Salmon fillet 180 g, asparagus, broccoli, cherry tomatoes, rocket, lemon dressing"
+   ]
+  },
+  "beef-medallions": {
+   "price": "00 000",
+   "ru": [
+    "Медальоны",
+    "Говяжья вырезка, сливочно-грибной соус, чеснок, розмарин"
+   ],
+   "en": [
+    "Beef Medallions",
+    "Beef tenderloin, creamy mushroom sauce, garlic, rosemary"
+   ]
+  },
+  "pasta-alfredo": {
+   "price": "00 000",
+   "ru": [
+    "Паста Альфредо",
+    "Спагетти, куриная грудка, шампиньоны, сливочный соус, чеснок"
+   ],
+   "en": [
+    "Pasta Alfredo",
+    "Spaghetti, chicken breast, mushrooms, cream sauce, garlic"
+   ]
+  },
+  "pasta-carbonara": {
+   "price": "00 000",
+   "ru": [
+    "Паста Карбонара",
+    "Спагетти, говяжий бекон, яичный желток, пармезан, сливки, чёрный перец"
+   ],
+   "en": [
+    "Pasta Carbonara",
+    "Spaghetti, beef bacon, egg yolk, Parmesan, cream, black pepper"
+   ]
+  },
+  "seafood-pasta": {
+   "price": "00 000",
+   "ru": [
+    "Паста с морепродуктами",
+    "Спагетти, лосось, креветки, болгарский перец, сливочное масло, лимон, петрушка"
+   ],
+   "en": [
+    "Seafood Pasta",
+    "Spaghetti, salmon, shrimp, bell pepper, butter, lemon, parsley"
+   ]
+  },
+  "pancakes": {
+   "price": "00 000",
+   "ru": [
+    "Панкейки",
+    "Пышные панкейки, кленовый сироп, сливочное масло, свежие ягоды, сахарная пудра"
+   ],
+   "en": [
+    "Pancakes",
+    "Fluffy pancakes, maple syrup, butter, fresh berries, powdered sugar"
+   ]
+  },
+  "churros": {
+   "price": "00 000 / 00 000",
+   "variant": {
+    "ru": "S / M",
+    "en": "S / M"
+   },
+   "ru": [
+    "Чурос",
+    "Хрустящие чурос, сахар с корицей, шоколадный соус"
+   ],
+   "en": [
+    "Churros",
+    "Crispy churros, cinnamon sugar, chocolate sauce"
+   ]
+  },
+  "crepes": {
+   "price": "00 000",
+   "ru": [
+    "Крепс",
+    "Тонкие блинчики, шоколадно-ореховая паста, банан, клубника, сахарная пудра"
+   ],
+   "en": [
+    "Crêpes",
+    "Thin crêpes, chocolate hazelnut spread, banana, strawberries, powdered sugar"
+   ]
+  }
+ },
  "sections": [
   {
    "id": "signature",
@@ -698,73 +1006,11 @@ html[lang="ru"] .m-name { font-size: 26px; }
     "en": "Signature Dishes",
     "ru": "Фирменные блюда"
    },
-   "dishes": [
-    {
-     "price": "00 000",
-     "en": [
-      "Palinger Burger",
-      "Beef, cheese, mushrooms, pickles, jalapeño"
-     ],
-     "ru": [
-      "Палингер Бургер",
-      "Говядина, сыр, грибы, маринованные огурцы, халапеньо"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Steak Burger",
-      "Beef steak, cheese, mushrooms, pickles, red onion"
-     ],
-     "ru": [
-      "Стейк Бургер",
-      "Говяжий стейк, сыр, грибы, маринованные огурцы, красный лук"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Beef Medallions",
-      "Beef tenderloin, creamy mushroom sauce, garlic, rosemary"
-     ],
-     "ru": [
-      "Говяжий медальон",
-      "Говяжья вырезка, сливочно-грибной соус, чеснок, розмарин"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Eel Benedict",
-      "Brioche, eel, poached egg, avocado, cream cheese, hollandaise"
-     ],
-     "ru": [
-      "Бенедикт с угрём",
-      "Бриошь, угорь, яйцо пашот, авокадо, крем-чиз, голландез"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Chuka Salad with Eel",
-      "Eel, chuka seaweed, orange, avocado, cherry tomatoes, rocket, unagi sauce, sesame"
-     ],
-     "ru": [
-      "Чука-салат с угрём",
-      "Угорь, водоросли чука, апельсин, авокадо, черри, руккола, соус унаги, кунжут"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Classic Eel Soup",
-      "Eel, creamy eel broth, butter, green onion"
-     ],
-     "ru": [
-      "Классический суп с угрём",
-      "Угорь, сливочный бульон из угря, сливочное масло, зелёный лук"
-     ]
-    }
+   "items": [
+    "palinger-burger",
+    "chuka-salad",
+    "palinger-brunch",
+    "salmon-steak"
    ]
   },
   {
@@ -773,93 +1019,15 @@ html[lang="ru"] .m-name { font-size: 26px; }
     "en": "Breakfast",
     "ru": "Завтраки"
    },
-   "dishes": [
-    {
-     "price": "00 000",
-     "en": [
-      "Salmon Benedict",
-      "Brioche, cured salmon, poached egg, avocado, cream cheese, hollandaise"
-     ],
-     "ru": [
-      "Бенедикт с лососем",
-      "Бриошь, слабосолёный лосось, яйцо пашот, авокадо, крем-чиз, голландез"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Dutch Scramble",
-      "Eggs, spinach, tomato, Gouda, avocado, cilantro, rye bread"
-     ],
-     "ru": [
-      "Голландский скрембл",
-      "Яйца, шпинат, томат, гауда, авокадо, кинза, бородинский хлеб"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Yogurt Bowl",
-      "Yogurt, cottage cheese, granola, banana, blueberries, raspberries"
-     ],
-     "ru": [
-      "Йогурт-боул",
-      "Йогурт, творог, гранола, банан, голубика, малина"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Tomato Bruschetta",
-      "Pink & cherry tomatoes, stracciatella, avocado, balsamic, basil"
-     ],
-     "ru": [
-      "Брускетта с томатами",
-      "Розовые томаты и черри, страчателла, авокадо, бальзамик, базилик"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "soups",
-   "title": {
-    "en": "Soups",
-    "ru": "Супы"
-   },
-   "dishes": [
-    {
-     "price": "00 000",
-     "en": [
-      "Coconut Eel Soup",
-      "Eel, coconut milk, broccoli, cherry tomatoes, green onion"
-     ],
-     "ru": [
-      "Суп с угрём на кокосовом молоке",
-      "Угорь, кокосовое молоко, брокколи, черри, зелёный лук"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Atlantic Soup",
-      "Salmon, shrimp, bell pepper, celery, broccoli, fish broth"
-     ],
-     "ru": [
-      "Атлантический суп",
-      "Лосось, креветки, болгарский перец, сельдерей, брокколи, рыбный бульон"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Cheese Cream Soup",
-      "Melted cheese, cream cheese, potato, cream, eel broth, grissini"
-     ],
-     "ru": [
-      "Сырный крем-суп",
-      "Плавленый сыр, крем-чиз, картофель, сливки, бульон из угря, гриссини"
-     ]
-    }
+   "items": [
+    "salmon-benedict",
+    "eel-benedict",
+    "yogurt-bowl",
+    "palinger-brunch",
+    "dutch-scramble",
+    "english-breakfast",
+    "tomato-bruschetta",
+    "cottage-pancakes"
    ]
   },
   {
@@ -868,73 +1036,98 @@ html[lang="ru"] .m-name { font-size: 26px; }
     "en": "Salads",
     "ru": "Салаты"
    },
-   "dishes": [
-    {
-     "price": "00 000",
-     "en": [
-      "Stracciatella Salad",
-      "Stracciatella, pink tomato, apricot, avocado, romaine, grain mustard"
-     ],
-     "ru": [
-      "Салат со страчателлой",
-      "Страчателла, розовый томат, абрикос, авокадо, романо, зернистая горчица"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Fresh Tomato Salad",
-      "Pink & cherry tomatoes, spinach, mini mozzarella, pesto, pine nuts, balsamic"
-     ],
-     "ru": [
-      "Свежий томатный салат",
-      "Розовые томаты и черри, шпинат, мини-моцарелла, песто, кедровый орех, бальзамик"
-     ]
-    }
+   "items": [
+    "chuka-salad",
+    "tomato-mozzarella",
+    "stracciatella"
    ]
   },
   {
-   "id": "hot",
+   "id": "burgers",
    "title": {
-    "en": "Hot Dishes",
-    "ru": "Горячие блюда"
+    "en": "Burgers",
+    "ru": "Бургеры"
    },
-   "dishes": [
-    {
-     "price": "00 000",
-     "en": [
-      "Salmon Steak",
-      "Salmon fillet 180 g, asparagus, broccoli, cherry tomatoes, rocket, lemon dressing"
-     ],
-     "ru": [
-      "Стейк из лосося",
-      "Филе лосося 180 г, спаржа, брокколи, черри, руккола, лимонный дрессинг"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Pasta Alfredo",
-      "Spaghetti, chicken breast, mushrooms, cream sauce, garlic"
-     ],
-     "ru": [
-      "Паста Альфредо",
-      "Спагетти, куриная грудка, шампиньоны, сливочный соус, чеснок"
-     ]
-    },
-    {
-     "price": "00 000",
-     "en": [
-      "Seafood Pasta",
-      "Spaghetti, salmon, shrimp, bell pepper, butter, lemon, parsley"
-     ],
-     "ru": [
-      "Паста с морепродуктами",
-      "Спагетти, лосось, креветки, болгарский перец, сливочное масло, лимон, петрушка"
-     ]
-    }
+   "items": [
+    "palinger-burger",
+    "smash-burger",
+    "medallion-burger"
+   ]
+  },
+  {
+   "id": "sides",
+   "title": {
+    "en": "Sides",
+    "ru": "Гарниры"
+   },
+   "items": [
+    "fries",
+    "country-potatoes"
+   ]
+  },
+  {
+   "id": "soups",
+   "title": {
+    "en": "Soups",
+    "ru": "Супы"
+   },
+   "items": [
+    "atlantic-soup",
+    "cheese-soup"
+   ]
+  },
+  {
+   "id": "steaks",
+   "title": {
+    "en": "Steaks",
+    "ru": "Стейки"
+   },
+   "items": [
+    "salmon-steak",
+    "beef-medallions"
+   ]
+  },
+  {
+   "id": "pasta",
+   "title": {
+    "en": "Pasta",
+    "ru": "Пасты"
+   },
+   "items": [
+    "pasta-alfredo",
+    "pasta-carbonara",
+    "seafood-pasta"
+   ]
+  },
+  {
+   "id": "desserts",
+   "title": {
+    "en": "Desserts",
+    "ru": "Десерты"
+   },
+   "items": [
+    "pancakes",
+    "churros",
+    "crepes"
    ]
   }
+ ],
+ "desktopColumns": [
+  [
+   "breakfast",
+   "salads"
+  ],
+  [
+   "signature",
+   "burgers",
+   "sides"
+  ],
+  [
+   "soups",
+   "steaks",
+   "pasta",
+   "desserts"
+  ]
  ]
 }
 </script>
@@ -991,8 +1184,9 @@ html[lang="ru"] .m-name { font-size: 26px; }
 (function () {
   'use strict';
 
-  /* Photos: put files into the "photos" folder next to this page —
-     photos/01.jpg … photos/18.jpg, 4:3, at least 1200×900. Missing files show a numbered placeholder. */
+  /* Photos: put files into the "photos" folder next to this page, named by dish id
+     (photos/palinger-burger.jpg …, see photos/README.txt), 4:3, at least 1200×900.
+     Missing files show a numbered placeholder. */
   var PHOTO_DIR = 'photos/';
   var PHOTO_EXT = '.jpg';
 
@@ -1013,11 +1207,19 @@ html[lang="ru"] .m-name { font-size: 26px; }
   var DATA = JSON.parse(document.getElementById('menu-data').textContent);
   var SECTIONS = DATA.sections;
   var SEC = {};
-  var DISHES = [];
+  var PHOTO_NO = {};  // dish id -> placeholder number, counted through the regular sections
   SECTIONS.forEach(function (s) {
     SEC[s.id] = s;
-    s.dishes.forEach(function (d, k) {
-      DISHES.push({ i: DISHES.length, k: k, sec: s, price: d.price, en: d.en, ru: d.ru });
+    if (s.signature) return;
+    s.items.forEach(function (id) { if (!PHOTO_NO[id]) PHOTO_NO[id] = Object.keys(PHOTO_NO).length + 1; });
+  });
+  // one entry per row on the page, in reading order; Signature dishes repeat a dish from its own section
+  var DISHES = [];
+  SECTIONS.forEach(function (s) {
+    s.items.forEach(function (id, k) {
+      var d = DATA.dishes[id];
+      DISHES.push({ i: DISHES.length, k: k, sec: s, id: id, no: PHOTO_NO[id] || DISHES.length + 1,
+        price: d.price, variant: d.variant || null, en: d.en, ru: d.ru });
     });
   });
   var N = DISHES.length;
@@ -1045,6 +1247,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
     return '<li><button type="button" class="dish" data-i="' + d.i + '">' +
       '<span class="dish-head"><span class="dish-name">' + esc(t[0]) + '</span>' +
       '<span class="leader" aria-hidden="true"></span><span class="price">' + esc(d.price) + '</span></span>' +
+      (d.variant ? '<span class="dish-variant">' + esc(d.variant[lang]) + '</span>' : '') +
       '<span class="dish-desc">' + esc(t[1]) + '</span></button></li>';
   }
 
@@ -1066,12 +1269,12 @@ html[lang="ru"] .m-name { font-size: 26px; }
   }
 
   function renderMenu() {
-    if (mqDesk.matches) {
-      // the printed layout: Breakfast + Soups | Signature | Salads + Hot Dishes
-      menuEl.innerHTML = '<div class="cols">' +
-        '<div class="col">' + sectionHTML(SEC.breakfast) + sectionHTML(SEC.soups) + '</div>' +
-        '<div class="col col-mid">' + sectionHTML(SEC.signature) + '</div>' +
-        '<div class="col">' + sectionHTML(SEC.salads) + sectionHTML(SEC.hot) + '</div></div>';
+    if (mqDesk.matches && DATA.desktopColumns) {
+      // the printed three-column page; which sections go where is set in the menu data
+      menuEl.innerHTML = '<div class="cols">' + DATA.desktopColumns.map(function (col, c) {
+        return '<div class="col' + (c === 1 ? ' col-mid' : '') + '">' +
+          col.map(function (id) { return SEC[id] ? sectionHTML(SEC[id]) : ''; }).join('') + '</div>';
+      }).join('') + '</div>';
     } else {
       menuEl.innerHTML = SECTIONS.map(sectionHTML).join('');
     }
@@ -1236,15 +1439,17 @@ html[lang="ru"] .m-name { font-size: 26px; }
   var canAnimate = typeof Element.prototype.animate === 'function';
 
   function slideHTML(d) {
-    var t = d[lang], no = pad(d.i + 1);
+    var t = d[lang], no = pad(d.no);
     return '<article class="slide" data-i="' + d.i + '" aria-roledescription="slide">' +
       '<figure class="plate"><div class="plate-in">' +
       '<div class="ph" aria-hidden="true"><span class="ph-crop"></span><span class="ph-no">' + no + '</span>' +
       '<span class="ph-cap">' + UI[lang].photo + ' · 4:3</span></div>' +
-      '<img alt="' + esc(t[0]) + '" decoding="async" data-src="' + PHOTO_DIR + no + PHOTO_EXT + '">' +
+      '<img alt="' + esc(t[0]) + '" decoding="async" data-src="' + PHOTO_DIR + d.id + PHOTO_EXT + '">' +
       '</div></figure>' +
       '<div class="meta"><h2 class="m-name" id="m-name-' + d.i + '">' + esc(t[0]) + '</h2>' +
-      '<div class="m-rule"></div><p class="m-desc">' + esc(t[1]) + '</p>' +
+      '<div class="m-rule"></div>' +
+      (d.variant ? '<p class="m-variant">' + esc(d.variant[lang]) + '</p>' : '') +
+      '<p class="m-desc">' + esc(t[1]) + '</p>' +
       '<p class="m-price"><span class="leader" aria-hidden="true"></span><b>' + esc(d.price) + '</b></p></div>' +
       '</article>';
   }

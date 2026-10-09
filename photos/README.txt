@@ -1,35 +1,50 @@
 ФОТО БЛЮД / DISH PHOTOS
 
-Положите фото в эту папку под номером блюда: 01.jpg … 18.jpg.
-Формат 4:3 (горизонтальное), не меньше 1200×900 px, JPG. Другие пропорции будут обрезаны по центру.
-Пока файла нет, на сайте показывается пронумерованная заглушка.
+Положите фото в эту папку под именем из списка ниже, например palinger-burger.jpg.
+Формат 4:3 (горизонтальное), не меньше 1200×900 px, JPG. Другие пропорции обрежутся по центру.
+Пока файла нет, на сайте показывается заглушка с номером блюда.
+Фирменные блюда берут фото из своего раздела — отдельный файл не нужен.
 
-Drop photos here named by dish number: 01.jpg … 18.jpg — 4:3 landscape, at least 1200×900 px, JPG.
-
-Фирменные блюда / Signature Dishes
-  01.jpg  Палингер Бургер  /  Palinger Burger
-  02.jpg  Стейк Бургер  /  Steak Burger
-  03.jpg  Говяжий медальон  /  Beef Medallions
-  04.jpg  Бенедикт с угрём  /  Eel Benedict
-  05.jpg  Чука-салат с угрём  /  Chuka Salad with Eel
-  06.jpg  Классический суп с угрём  /  Classic Eel Soup
+Name each photo as listed below (e.g. palinger-burger.jpg), 4:3 landscape, at least 1200×900 px, JPG.
 
 Завтраки / Breakfast
-  07.jpg  Бенедикт с лососем  /  Salmon Benedict
-  08.jpg  Голландский скрембл  /  Dutch Scramble
-  09.jpg  Йогурт-боул  /  Yogurt Bowl
-  10.jpg  Брускетта с томатами  /  Tomato Bruschetta
-
-Супы / Soups
-  11.jpg  Суп с угрём на кокосовом молоке  /  Coconut Eel Soup
-  12.jpg  Атлантический суп  /  Atlantic Soup
-  13.jpg  Сырный крем-суп  /  Cheese Cream Soup
+  01  salmon-benedict.jpg  —  Бенедикт с лососем / Salmon Benedict
+  02  eel-benedict.jpg  —  Бенедикт с угрём / Eel Benedict
+  03  yogurt-bowl.jpg  —  Йогурт-боул / Yogurt Bowl
+  04  palinger-brunch.jpg  —  Палингер Бранч / Palinger Brunch
+  05  dutch-scramble.jpg  —  Голландский скрембл / Dutch Scramble
+  06  english-breakfast.jpg  —  Английский завтрак / English Breakfast
+  07  tomato-bruschetta.jpg  —  Брускетта с томатами / Tomato Bruschetta
+  08  cottage-pancakes.jpg  —  Творожные оладьи с фруктами / Cottage Cheese Pancakes with Fruit
 
 Салаты / Salads
-  14.jpg  Салат со страчателлой  /  Stracciatella Salad
-  15.jpg  Свежий томатный салат  /  Fresh Tomato Salad
+  09  chuka-salad.jpg  —  Чука-салат с угрём / Chuka Salad with Eel
+  10  tomato-mozzarella.jpg  —  Томаты с мини-моцареллой / Tomatoes with Mini Mozzarella
+  11  stracciatella.jpg  —  Салат со страчателлой / Stracciatella Salad
 
-Горячие блюда / Hot Dishes
-  16.jpg  Стейк из лосося  /  Salmon Steak
-  17.jpg  Паста Альфредо  /  Pasta Alfredo
-  18.jpg  Паста с морепродуктами  /  Seafood Pasta
+Бургеры / Burgers
+  12  palinger-burger.jpg  —  Палингер Бургер / Palinger Burger
+  13  smash-burger.jpg  —  Смеш Бургер / Smash Burger
+  14  medallion-burger.jpg  —  Бургер Медальон / Medallion Burger
+
+Гарниры / Sides
+  15  fries.jpg  —  Фри / Fries
+  16  country-potatoes.jpg  —  Картофель по-деревенски / Country-Style Potatoes
+
+Супы / Soups
+  17  atlantic-soup.jpg  —  Атлантический суп / Atlantic Soup
+  18  cheese-soup.jpg  —  Сырный крем-суп / Cheese Cream Soup
+
+Стейки / Steaks
+  19  salmon-steak.jpg  —  Стейк из лосося / Salmon Steak
+  20  beef-medallions.jpg  —  Медальоны / Beef Medallions
+
+Пасты / Pasta
+  21  pasta-alfredo.jpg  —  Паста Альфредо / Pasta Alfredo
+  22  pasta-carbonara.jpg  —  Паста Карбонара / Pasta Carbonara
+  23  seafood-pasta.jpg  —  Паста с морепродуктами / Seafood Pasta
+
+Десерты / Desserts
+  24  pancakes.jpg  —  Панкейки / Pancakes
+  25  churros.jpg  —  Чурос / Churros
+  26  crepes.jpg  —  Крепс / Crêpes
