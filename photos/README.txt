@@ -25,7 +25,7 @@ File name = dish id below. [+] = photo present, [ ] = no photo yet.
 
 Бургеры / Burgers
   [+] palinger-burger.jpg  —  Палингер Бургер / Palinger Burger
-  [ ] smash-burger.jpg  —  Смеш Бургер / Smash Burger
+  [+] smash-burger.jpg  —  Смеш Бургер / Smash Burger
   [+] medallion-burger.jpg  —  Бургер Медальон / Medallion Burger
 
 Гарниры / Sides
