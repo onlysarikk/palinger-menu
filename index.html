@@ -252,11 +252,17 @@ html[lang="ru"] .sig-frame .sec-title { font-size: 35px; }
 }
 button.dish:active { transform: scale(.985); background-color: rgba(239, 233, 220, .055); }
 .dish--static { cursor: default; }
-.dish-head { display: flex; align-items: baseline; }
-.dish--multi .dish-head { flex-wrap: wrap; }
-.dish--multi .price { margin-left: auto; }
+/* Printed-menu row: the name may wrap, the price always sits on the name's LAST line,
+   and the dotted leader runs from the last word to the price. */
+.dish-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 8px;
+  align-items: end;
+  align-items: last baseline;
+}
 .dish-name {
-  flex: 0 1 auto;
+  overflow: hidden;              /* clips the leader at the price column */
   font-family: var(--f-dish);
   font-weight: 700;
   font-size: 18.5px;
@@ -265,15 +271,20 @@ button.dish:active { transform: scale(.985); background-color: rgba(239, 233, 22
 }
 html[lang="ru"] .dish-name { font-size: 17.5px; }
 .leader {
-  flex: 1 1 0;
-  min-width: 14px;
   height: 2px;
-  margin: 0 8px 1px;
   background: radial-gradient(circle, var(--dots) 0 .65px, transparent .95px) 0 50% / 4px 2px repeat-x;
-  transition: opacity 200ms ease;
+}
+/* inside the name: a very wide strip whose negative right margin makes it take no room in the
+   line, so it stays right after the last word and is cut off where the price column starts */
+.dish-name .leader.is-short { visibility: hidden; }   /* a single dot would read as a full stop */
+.dish-name .leader {
+  display: inline-block;
+  width: 2400px;
+  margin: 0 -2400px 0 0;         /* zero-width in the line: it can never wrap onto a line of its own */
+  background-position: 6px 50%;  /* the gap after the last word lives inside the strip */
+  vertical-align: baseline;
 }
 .price {
-  flex: none;
   font-family: var(--f-util);
   font-weight: 600;
   font-size: 15px;
@@ -313,7 +324,7 @@ html[lang="ru"] .dish-name { font-size: 17.5px; }
 }
 @keyframes cue { to { transform: translateX(100%); } }
 @media (hover: hover) and (pointer: fine) {
-  button.dish:hover .dish-name { text-decoration: underline 1px; text-underline-offset: 4px; }
+  button.dish:hover .dish-name-t { text-decoration: underline 1px; text-underline-offset: 4px; }
   button.dish:hover { background-color: rgba(239, 233, 220, .035); }
 }
 
@@ -690,7 +701,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
 .m-variant { font-variant-numeric: lining-nums; margin: -4px 0 8px; font-style: italic; font-size: 17px; color: var(--mist); }
 .m-desc { margin: 0; font-size: 19.5px; line-height: 1.32; color: var(--paper); }
 .m-price { display: flex; align-items: baseline; margin: 16px 0 0; }
-.m-price .leader { margin-left: 0; }
+.m-price .leader { flex: 1 1 0; min-width: 14px; margin: 0 10px 1px 0; }
 .m-price b {
   font-family: var(--f-util);
   font-weight: 600;
@@ -2119,12 +2130,13 @@ html[lang="ru"] .m-name { font-size: 26px; }
   function dishHTML(d) {
     var t = d[lang], open = d.v !== undefined;
     var inner =
-      '<span class="dish-head"><span class="dish-name">' + esc(t[0]) + '</span>' +
-      (d.price ? '<span class="leader" aria-hidden="true"></span><span class="price">' + esc(d.price) + '</span>' : '') +
+      '<span class="dish-head"><span class="dish-name"><span class="dish-name-t">' + esc(t[0]) + '</span>' +
+      (d.price ? '<span class="leader" aria-hidden="true"></span>' : '') + '</span>' +
+      (d.price ? '<span class="price">' + esc(d.price) + '</span>' : '') +
       '</span>' +
       (d.variant ? '<span class="dish-variant">' + esc(d.variant[lang]) + '</span>' : '') +
       (t[1] ? '<span class="dish-desc">' + esc(t[1]) + '</span>' : '');
-    var cls = 'dish' + (d.price && d.price.indexOf('/') > -1 ? ' dish--multi' : '');
+    var cls = 'dish';
     return open
       ? '<li><button type="button" class="' + cls + '" data-v="' + d.v + '" aria-haspopup="dialog">' + inner + '</button></li>'
       : '<li><div class="' + cls + ' dish--static">' + inner + '</div></li>';
@@ -2174,6 +2186,15 @@ html[lang="ru"] .m-name { font-size: 26px; }
     renderPartsNav();
     renderIndex();
     observeSections();
+    tidyLeaders();
+  }
+
+  // hide a leader when not even two dots fit between the last word and the price
+  function tidyLeaders() {
+    menuEl.querySelectorAll('.dish-name .leader').forEach(function (l) {
+      var box = l.parentNode.getBoundingClientRect(), r = l.getBoundingClientRect();
+      l.classList.toggle('is-short', Math.min(r.right, box.right) - r.left - 6 < 7);
+    });
   }
 
   function renderPartsNav() {
@@ -2626,9 +2647,13 @@ html[lang="ru"] .m-name { font-size: 26px; }
     });
     // web fonts change text widths: re-measure the index underline when they arrive
     if (document.fonts && document.fonts.addEventListener) {
-      document.fonts.addEventListener('loadingdone', function () { activeSec = null; onScroll(); });
+      document.fonts.addEventListener('loadingdone', function () { activeSec = null; onScroll(); tidyLeaders(); });
     }
-    window.addEventListener('resize', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } });
+    var tidyQueued = false;
+    window.addEventListener('resize', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+      if (!tidyQueued) { tidyQueued = true; requestAnimationFrame(function () { tidyQueued = false; tidyLeaders(); }); }
+    });
 
     var start = function () {
       if (root.classList.contains('ready') && root.dataset.started) return;
