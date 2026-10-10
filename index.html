@@ -89,8 +89,10 @@ body {
   overflow-x: hidden;
 }
 html.lb-lock, html.lb-lock body { overflow: hidden; }
+html.lb-lock { background-color: var(--navy-deep); }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 1px solid var(--cream); outline-offset: 3px; }
+.part:focus, .sec:focus { outline: none; }
 
 /* ---------- sheet (the printed page) ---------- */
 .sheet {
@@ -248,8 +250,11 @@ html[lang="ru"] .sig-frame .sec-title { font-size: 35px; }
   overflow: hidden;
   transition: transform 160ms var(--ease-out), background-color 220ms ease;
 }
-.dish:active { transform: scale(.985); background-color: rgba(239, 233, 220, .055); }
+button.dish:active { transform: scale(.985); background-color: rgba(239, 233, 220, .055); }
+.dish--static { cursor: default; }
 .dish-head { display: flex; align-items: baseline; }
+.dish--multi .dish-head { flex-wrap: wrap; }
+.dish--multi .price { margin-left: auto; }
 .dish-name {
   flex: 0 1 auto;
   font-family: var(--f-dish);
@@ -278,6 +283,7 @@ html[lang="ru"] .dish-name { font-size: 17.5px; }
 }
 .dish-variant {
   display: block;
+  font-variant-numeric: lining-nums;
   margin-top: 1px;
   font-style: italic;
   font-size: 15.5px;
@@ -291,6 +297,8 @@ html[lang="ru"] .dish-name { font-size: 17.5px; }
   line-height: 1.3;
   color: var(--paper);
 }
+.motion .sec:not(.in) .sec-title, .motion .sec:not(.in) .dbl,
+.motion .sec:not(.in) .sig-rule, .motion .sec:not(.in) .dish { opacity: 0; }
 .dish.flash { animation: flash 1100ms ease-out; }
 @keyframes flash { from { background-color: rgba(239, 233, 220, .13); } to { background-color: transparent; } }
 /* one-time cue: a soft light passes over the first dish to show rows are tappable */
@@ -305,8 +313,73 @@ html[lang="ru"] .dish-name { font-size: 17.5px; }
 }
 @keyframes cue { to { transform: translateX(100%); } }
 @media (hover: hover) and (pointer: fine) {
-  .dish:hover .dish-name { text-decoration: underline 1px; text-underline-offset: 4px; }
-  .dish:hover { background-color: rgba(239, 233, 220, .035); }
+  button.dish:hover .dish-name { text-decoration: underline 1px; text-underline-offset: 4px; }
+  button.dish:hover { background-color: rgba(239, 233, 220, .035); }
+}
+
+/* ---------- parts: kitchen, bar ---------- */
+.parts-nav {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 4px;
+  margin: 10px 0 0;
+}
+.parts-nav button {
+  padding: 8px 12px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--cream);
+  text-decoration: underline 1px rgba(239, 233, 220, .45);
+  text-underline-offset: 5px;
+  transition: text-decoration-color 200ms ease, transform 160ms var(--ease-out);
+}
+html[lang="ru"] .parts-nav button { font-size: 21px; }
+.parts-nav button:active { transform: scale(.97); }
+@media (hover: hover) and (pointer: fine) {
+  .parts-nav button:hover { text-decoration-color: var(--cream); }
+}
+.parts-dot { color: var(--mist); opacity: .6; }
+.part + .part { margin-top: 52px; }
+.part-head { margin-bottom: 26px; }
+.part-head .title-row { margin-top: 22px; }
+.part-title {
+  margin: 0 -.38em 0 0;
+  font-family: var(--f-dish);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: .38em;
+}
+.currency {
+  margin: 40px 0 0;
+  text-align: center;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--mist);
+}
+.index-scroll .index-part {
+  position: relative;
+  padding-left: 22px;
+  font-family: var(--f-caps);
+  font-weight: var(--caps-weight);
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+html[lang="ru"] .index-scroll .index-part { font-size: 14px; letter-spacing: .14em; }
+.index-scroll .index-part::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 50%;
+  width: 1px; height: 16px;
+  margin-top: -8px;
+  background: var(--line-soft);
 }
 
 /* ---------- footer ---------- */
@@ -380,7 +453,7 @@ html[lang="ru"] .dish-name { font-size: 17.5px; }
   opacity: .66;
   transition: opacity 250ms ease, color 250ms ease;
 }
-html[lang="ru"] .index-scroll button { font-size: 17.5px; padding: 14px 0 16px; }
+html[lang="ru"] .index-scroll button { font-size: 17.5px; padding-top: 14px; padding-bottom: 16px; }
 .index-scroll button.on { color: var(--cream); opacity: 1; }
 .index-ind {
   position: absolute;
@@ -399,7 +472,7 @@ html[lang="ru"] .index-scroll button { font-size: 17.5px; padding: 14px 0 16px; 
   .dateline { grid-template-columns: 1fr auto 1fr; }
   .dl-date { font-size: 13px; }
   .dl-vol, .dl-est { font-size: 10.5px; letter-spacing: .08em; }
-  .menu-title { font-size: 40px; }
+  .menu-title, .part-title { font-size: 40px; }
 }
 
 /* ---------- desktop: the printed three-column page ---------- */
@@ -413,8 +486,9 @@ html[lang="ru"] .index-scroll button { font-size: 17.5px; padding: 14px 0 16px; 
   .dl-date { font-size: 16px; }
   .rule-2 { height: 7px; border-top-width: 3px; }
   .title-row { margin-top: 30px; gap: 30px; }
-  .menu-title { font-size: 48px; }
+  .menu-title, .part-title { font-size: 48px; }
   .hint { font-size: 18px; }
+  .part + .part { margin-top: 64px; }
   .menu { margin-top: 30px; }
   .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 44px; align-items: stretch; }
   .col-mid { position: relative; }
@@ -437,6 +511,7 @@ html[lang="ru"] .index-scroll button { font-size: 17.5px; padding: 14px 0 16px; 
   html[lang="ru"] .dish-name { font-size: 21px; }
   .price { font-size: 17.5px; }
   .dish-desc { font-size: 18.5px; }
+  .dish-variant { font-size: 17px; }
   .foot { margin-top: 30px; font-size: 13px; }
 }
 
@@ -541,7 +616,14 @@ html[lang="ru"] .index-scroll button { font-size: 17.5px; padding: 14px 0 16px; 
   width: 100%;
   height: 100%;
 }
-.plate-in > img { object-fit: cover; opacity: 0; transition: opacity 500ms ease; }
+.plate-in > img {
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  pointer-events: none;          /* the stage owns the gesture; a native image drag would cancel the swipe */
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
 .plate-in > img.ok { opacity: 1; }
 .ph {
   display: grid;
@@ -566,12 +648,14 @@ html[lang="ru"] .index-scroll button { font-size: 17.5px; padding: 14px 0 16px; 
     linear-gradient(var(--c), var(--c)) right bottom / 16px 1px no-repeat,
     linear-gradient(var(--c), var(--c)) right bottom / 1px 16px no-repeat;
 }
-.ph-no {
-  font-family: var(--f-display-en);
-  font-weight: 700;
-  font-size: clamp(60px, 21vw, 128px);
-  line-height: .9;
-  color: var(--cream);
+.has-photo .ph-logo, .has-photo .ph-cap { visibility: hidden; }
+.ph-logo {
+  width: clamp(64px, 22%, 120px);
+  aspect-ratio: 540 / 570;
+  background: var(--cream);
+  opacity: .42;
+  -webkit-mask: var(--logo) center / contain no-repeat;
+  mask: var(--logo) center / contain no-repeat;
 }
 .ph-cap {
   margin-top: 12px;
@@ -603,7 +687,7 @@ html[lang="ru"] .ph-cap { font-size: 13px; letter-spacing: .26em; text-indent: .
 }
 html[lang="ru"] .m-name { font-size: 26px; }
 .m-rule { height: 4px; margin: 14px 0 12px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); transform-origin: 0 50%; }
-.m-variant { margin: -4px 0 8px; font-style: italic; font-size: 17px; color: var(--mist); }
+.m-variant { font-variant-numeric: lining-nums; margin: -4px 0 8px; font-style: italic; font-size: 17px; color: var(--mist); }
 .m-desc { margin: 0; font-size: 19.5px; line-height: 1.32; color: var(--paper); }
 .m-price { display: flex; align-items: baseline; margin: 16px 0 0; }
 .m-price .leader { margin-left: 0; }
@@ -651,7 +735,8 @@ html[lang="ru"] .m-name { font-size: 26px; }
 @media (hover: hover) and (pointer: fine) {
   .lb-arrow:not(:disabled):hover { border-color: var(--cream); }
 }
-.ticks { display: flex; align-items: flex-end; height: 18px; gap: 4px; }
+.ticks { display: flex; align-items: flex-end; height: 18px; gap: 4px; min-width: 0; overflow: hidden; }
+.lb-arrow { flex: none; }
 .ticks i {
   display: block;
   width: 1px;
@@ -702,7 +787,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
 {
  "dishes": {
   "salmon-benedict": {
-   "price": "00 000",
+   "price": "81 000",
    "ru": [
     "Бенедикт с лососем",
     "Бриошь, слабосолёный лосось, яйцо пашот, авокадо, крем-чиз, голландез"
@@ -710,10 +795,11 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Salmon Benedict",
     "Brioche, cured salmon, poached egg, avocado, cream cheese, hollandaise"
-   ]
+   ],
+   "photo": "3d508621"
   },
   "eel-benedict": {
-   "price": "00 000",
+   "price": "87 000",
    "ru": [
     "Бенедикт с угрём",
     "Бриошь, угорь, яйцо пашот, авокадо, крем-чиз, голландез"
@@ -724,7 +810,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
    ]
   },
   "yogurt-bowl": {
-   "price": "00 000",
+   "price": "55 000",
    "ru": [
     "Йогурт-боул",
     "Йогурт, творог, гранола, банан, голубика, малина"
@@ -732,21 +818,23 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Yogurt Bowl",
     "Yogurt, cottage cheese, granola, banana, blueberries, raspberries"
-   ]
+   ],
+   "photo": "aca0b976"
   },
   "palinger-brunch": {
-   "price": "00 000",
+   "price": "90 000",
    "ru": [
     "Палингер Бранч",
-    "Яйца пашот, слабосолёный лосось, угорь, биттербаллен, авокадо, гауда, ржаной тост"
+    "Яйца пашот, голландез, слабосолёный лосось, угорь, креветки, руккола, тост, сливочное масло"
    ],
    "en": [
     "Palinger Brunch",
-    "Poached eggs, cured salmon, eel, bitterballen, avocado, Gouda, rye toast"
-   ]
+    "Poached eggs, hollandaise, cured salmon, eel, shrimp, rocket, toast, butter"
+   ],
+   "photo": "f2d78bcb"
   },
   "dutch-scramble": {
-   "price": "00 000",
+   "price": "63 000",
    "ru": [
     "Голландский скрембл",
     "Яйца, шпинат, томат, гауда, авокадо, кинза, бородинский хлеб"
@@ -754,21 +842,23 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Dutch Scramble",
     "Eggs, spinach, tomato, Gouda, avocado, cilantro, rye bread"
-   ]
+   ],
+   "photo": "3233e6c0"
   },
   "english-breakfast": {
-   "price": "00 000",
+   "price": "75 000",
    "ru": [
     "Английский завтрак",
-    "Яйца, говяжьи колбаски, говяжий бекон, фасоль в томатном соусе, грибы, томат, тост"
+    "Яичница, колбаски, шампиньоны, томат гриль, руккола, ржаной хлеб, сметана"
    ],
    "en": [
     "English Breakfast",
-    "Eggs, beef sausages, beef bacon, baked beans, mushrooms, tomato, toast"
-   ]
+    "Fried eggs, sausages, mushrooms, grilled tomato, rocket, rye bread, sour cream"
+   ],
+   "photo": "ee5b4565"
   },
   "tomato-bruschetta": {
-   "price": "00 000",
+   "price": "75 000",
    "ru": [
     "Брускетта с томатами",
     "Розовые томаты и черри, страчателла, авокадо, бальзамик, базилик"
@@ -776,21 +866,23 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Tomato Bruschetta",
     "Pink & cherry tomatoes, stracciatella, avocado, balsamic, basil"
-   ]
+   ],
+   "photo": "c42124c1"
   },
   "cottage-pancakes": {
-   "price": "00 000",
+   "price": "41 000",
    "ru": [
     "Творожные оладьи с фруктами",
-    "Творог, сметана, свежие фрукты, ягоды, мёд"
+    "Творожные оладьи, банан, малина, заварной крем, мята"
    ],
    "en": [
     "Cottage Cheese Pancakes with Fruit",
-    "Cottage cheese, sour cream, fresh fruit, berries, honey"
-   ]
+    "Cottage cheese pancakes, banana, raspberries, custard, mint"
+   ],
+   "photo": "6949482a"
   },
   "chuka-salad": {
-   "price": "00 000",
+   "price": "95 000",
    "ru": [
     "Чука-салат с угрём",
     "Угорь, водоросли чука, апельсин, авокадо, черри, руккола, соус унаги, кунжут"
@@ -798,10 +890,11 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Chuka Salad with Eel",
     "Eel, chuka seaweed, orange, avocado, cherry tomatoes, rocket, unagi sauce, sesame"
-   ]
+   ],
+   "photo": "79e65d6b"
   },
   "tomato-mozzarella": {
-   "price": "00 000",
+   "price": "73 000",
    "ru": [
     "Томаты с мини-моцареллой",
     "Розовые томаты и черри, шпинат, мини-моцарелла, песто, кедровый орех, бальзамик"
@@ -809,10 +902,11 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Tomatoes with Mini Mozzarella",
     "Pink & cherry tomatoes, spinach, mini mozzarella, pesto, pine nuts, balsamic"
-   ]
+   ],
+   "photo": "063e969c"
   },
   "stracciatella": {
-   "price": "00 000",
+   "price": "87 000",
    "ru": [
     "Салат со страчателлой",
     "Страчателла, розовый томат, абрикос, авокадо, романо, зернистая горчица"
@@ -820,10 +914,11 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Stracciatella Salad",
     "Stracciatella, pink tomato, apricot, avocado, romaine, grain mustard"
-   ]
+   ],
+   "photo": "90f15466"
   },
   "palinger-burger": {
-   "price": "00 000",
+   "price": "65 000 / 70 000",
    "variant": {
     "ru": "классический / пикантный",
     "en": "classic / spicy"
@@ -835,10 +930,11 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Palinger Burger",
     "Beef, cheese, mushrooms, pickles, jalapeño"
-   ]
+   ],
+   "photo": "34f069eb"
   },
   "smash-burger": {
-   "price": "00 000",
+   "price": "65 000",
    "ru": [
     "Смеш Бургер",
     "Две говяжьи смеш-котлеты, чеддер, карамелизированный лук, маринованные огурцы, фирменный соус"
@@ -849,40 +945,41 @@ html[lang="ru"] .m-name { font-size: 26px; }
    ]
   },
   "medallion-burger": {
-   "price": "00 000",
+   "price": "65 000",
    "ru": [
     "Бургер Медальон",
-    "Медальон из говяжьей вырезки, гауда, грибы, красный лук, руккола"
+    "Медальон из говяжьей вырезки, сыр, грибы, фирменный соус, картофель фри"
    ],
    "en": [
     "Medallion Burger",
-    "Beef tenderloin medallion, Gouda, mushrooms, red onion, rocket"
-   ]
+    "Beef tenderloin medallion, cheese, mushrooms, house sauce, French fries"
+   ],
+   "photo": "49040561"
   },
   "fries": {
-   "price": "00 000",
    "ru": [
     "Фри",
-    "Картофель фри, морская соль, майонез"
+    "Картофель фри, соль"
    ],
    "en": [
     "Fries",
-    "French fries, sea salt, mayonnaise"
-   ]
+    "French fries, salt"
+   ],
+   "photo": "48d30b4b"
   },
   "country-potatoes": {
-   "price": "00 000",
    "ru": [
     "Картофель по-деревенски",
-    "Картофельные дольки, чеснок, розмарин, паприка, сметанный соус"
+    "Картофельные дольки, тёртый пармезан, специи"
    ],
    "en": [
     "Country-Style Potatoes",
-    "Potato wedges, garlic, rosemary, paprika, sour cream sauce"
-   ]
+    "Potato wedges, grated Parmesan, spices"
+   ],
+   "photo": "8d55e8eb"
   },
   "atlantic-soup": {
-   "price": "00 000",
+   "price": "67 000",
    "ru": [
     "Атлантический суп",
     "Лосось, креветки, болгарский перец, сельдерей, брокколи, рыбный бульон"
@@ -890,10 +987,11 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Atlantic Soup",
     "Salmon, shrimp, bell pepper, celery, broccoli, fish broth"
-   ]
+   ],
+   "photo": "b8ab76f3"
   },
   "cheese-soup": {
-   "price": "00 000",
+   "price": "57 000",
    "ru": [
     "Сырный крем-суп",
     "Плавленый сыр, крем-чиз, картофель, сливки, бульон из угря, гриссини"
@@ -901,10 +999,11 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Cheese Cream Soup",
     "Melted cheese, cream cheese, potato, cream, eel broth, grissini"
-   ]
+   ],
+   "photo": "bffc58cb"
   },
   "salmon-steak": {
-   "price": "00 000",
+   "price": "165 000",
    "ru": [
     "Стейк из лосося",
     "Филе лосося 180 г, спаржа, брокколи, черри, руккола, лимонный дрессинг"
@@ -912,10 +1011,11 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Salmon Steak",
     "Salmon fillet 180 g, asparagus, broccoli, cherry tomatoes, rocket, lemon dressing"
-   ]
+   ],
+   "photo": "94bae410"
   },
   "beef-medallions": {
-   "price": "00 000",
+   "price": "120 000",
    "ru": [
     "Медальоны",
     "Говяжья вырезка, сливочно-грибной соус, чеснок, розмарин"
@@ -923,10 +1023,11 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Beef Medallions",
     "Beef tenderloin, creamy mushroom sauce, garlic, rosemary"
-   ]
+   ],
+   "photo": "59ee2ea0"
   },
   "pasta-alfredo": {
-   "price": "00 000",
+   "price": "78 000",
    "ru": [
     "Паста Альфредо",
     "Спагетти, куриная грудка, шампиньоны, сливочный соус, чеснок"
@@ -934,10 +1035,11 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Pasta Alfredo",
     "Spaghetti, chicken breast, mushrooms, cream sauce, garlic"
-   ]
+   ],
+   "photo": "8a32602d"
   },
   "pasta-carbonara": {
-   "price": "00 000",
+   "price": "97 000",
    "ru": [
     "Паста Карбонара",
     "Спагетти, говяжий бекон, яичный желток, пармезан, сливки, чёрный перец"
@@ -948,7 +1050,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
    ]
   },
   "seafood-pasta": {
-   "price": "00 000",
+   "price": "105 000",
    "ru": [
     "Паста с морепродуктами",
     "Спагетти, лосось, креветки, болгарский перец, сливочное масло, лимон, петрушка"
@@ -959,7 +1061,6 @@ html[lang="ru"] .m-name { font-size: 26px; }
    ]
   },
   "pancakes": {
-   "price": "00 000",
    "ru": [
     "Панкейки",
     "Пышные панкейки, кленовый сироп, сливочное масло, свежие ягоды, сахарная пудра"
@@ -967,10 +1068,14 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "en": [
     "Pancakes",
     "Fluffy pancakes, maple syrup, butter, fresh berries, powdered sugar"
-   ]
+   ],
+   "variant": {
+    "ru": "обычные / мини",
+    "en": "regular / mini"
+   }
   },
   "churros": {
-   "price": "00 000 / 00 000",
+   "price": "45 000 / 65 000",
    "variant": {
     "ru": "S / M",
     "en": "S / M"
@@ -985,15 +1090,607 @@ html[lang="ru"] .m-name { font-size: 26px; }
    ]
   },
   "crepes": {
-   "price": "00 000",
    "ru": [
     "Крепс",
-    "Тонкие блинчики, шоколадно-ореховая паста, банан, клубника, сахарная пудра"
+    "Тонкие блинчики, фисташковый или шоколадный крем, сахарная пудра"
    ],
    "en": [
     "Crêpes",
-    "Thin crêpes, chocolate hazelnut spread, banana, strawberries, powdered sugar"
+    "Thin crêpes, pistachio or chocolate cream, powdered sugar"
    ]
+  },
+  "espresso": {
+   "price": "21 000 / 27 000",
+   "ru": [
+    "Эспрессо",
+    ""
+   ],
+   "en": [
+    "Espresso",
+    ""
+   ],
+   "variant": {
+    "ru": "обычный / двойной",
+    "en": "single / double"
+   }
+  },
+  "americano": {
+   "price": "26 000 / 32 000",
+   "ru": [
+    "Американо",
+    ""
+   ],
+   "en": [
+    "Americano",
+    ""
+   ],
+   "variant": {
+    "ru": "обычный / двойной",
+    "en": "single / double"
+   }
+  },
+  "cappuccino": {
+   "price": "36 000 / 41 000",
+   "ru": [
+    "Капучино",
+    ""
+   ],
+   "en": [
+    "Cappuccino",
+    ""
+   ],
+   "variant": {
+    "ru": "обычный / двойной",
+    "en": "single / double"
+   }
+  },
+  "latte": {
+   "price": "37 000",
+   "ru": [
+    "Латте",
+    ""
+   ],
+   "en": [
+    "Latte",
+    ""
+   ]
+  },
+  "flat-white": {
+   "price": "41 000",
+   "ru": [
+    "Флэт уайт",
+    ""
+   ],
+   "en": [
+    "Flat White",
+    ""
+   ]
+  },
+  "mocha": {
+   "price": "57 000",
+   "ru": [
+    "Мокко",
+    ""
+   ],
+   "en": [
+    "Mocha",
+    ""
+   ]
+  },
+  "honey-raf": {
+   "price": "56 000",
+   "ru": [
+    "Медовый раф",
+    ""
+   ],
+   "en": [
+    "Honey Raf",
+    ""
+   ]
+  },
+  "cup-brulee": {
+   "price": "41 000",
+   "ru": [
+    "Кап-брюле",
+    ""
+   ],
+   "en": [
+    "Cup Brûlée",
+    ""
+   ]
+  },
+  "condensed-cappuccino": {
+   "price": "41 000",
+   "ru": [
+    "Капучино со сгущёнкой",
+    ""
+   ],
+   "en": [
+    "Condensed Milk Cappuccino",
+    ""
+   ]
+  },
+  "cinnabon-coffee": {
+   "price": "43 000",
+   "ru": [
+    "Кофе «Синнабон»",
+    ""
+   ],
+   "en": [
+    "Cinnabon Coffee",
+    ""
+   ]
+  },
+  "frappuccino": {
+   "price": "57 000",
+   "ru": [
+    "Фраппучино",
+    ""
+   ],
+   "en": [
+    "Frappuccino",
+    ""
+   ]
+  },
+  "iced-americano": {
+   "price": "32 000",
+   "ru": [
+    "Айс американо",
+    ""
+   ],
+   "en": [
+    "Iced Americano",
+    ""
+   ]
+  },
+  "iced-cappuccino": {
+   "price": "40 000",
+   "ru": [
+    "Айс капучино",
+    ""
+   ],
+   "en": [
+    "Iced Cappuccino",
+    ""
+   ]
+  },
+  "iced-latte": {
+   "price": "40 000",
+   "ru": [
+    "Айс латте",
+    ""
+   ],
+   "en": [
+    "Iced Latte",
+    ""
+   ]
+  },
+  "lem-watermelon-melon": {
+   "price": "40 000 / 70 000",
+   "ru": [
+    "Арбуз-дыня",
+    ""
+   ],
+   "en": [
+    "Watermelon & Melon",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л / 1 л",
+    "en": "0.5 L / 1 L"
+   }
+  },
+  "lem-lime-cherry": {
+   "price": "53 000 / 87 000",
+   "ru": [
+    "Лайм-вишня",
+    ""
+   ],
+   "en": [
+    "Lime & Cherry",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л / 1 л",
+    "en": "0.5 L / 1 L"
+   }
+  },
+  "lem-raspberry-passion": {
+   "price": "57 000 / 97 000",
+   "ru": [
+    "Малина-маракуйя",
+    ""
+   ],
+   "en": [
+    "Raspberry & Passion Fruit",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л / 1 л",
+    "en": "0.5 L / 1 L"
+   }
+  },
+  "lem-mango-passion": {
+   "price": "57 000 / 97 000",
+   "ru": [
+    "Манго-маракуйя",
+    ""
+   ],
+   "en": [
+    "Mango & Passion Fruit",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л / 1 л",
+    "en": "0.5 L / 1 L"
+   }
+  },
+  "mojito-classic": {
+   "price": "47 000 / 77 000",
+   "ru": [
+    "Мохито классический",
+    ""
+   ],
+   "en": [
+    "Classic Mojito",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л / 1 л",
+    "en": "0.5 L / 1 L"
+   }
+  },
+  "mojito-strawberry": {
+   "price": "51 000 / 83 000",
+   "ru": [
+    "Мохито клубничный",
+    ""
+   ],
+   "en": [
+    "Strawberry Mojito",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л / 1 л",
+    "en": "0.5 L / 1 L"
+   }
+  },
+  "lem-berry-mix": {
+   "price": "53 000 / 87 000",
+   "ru": [
+    "Ягодный микс",
+    ""
+   ],
+   "en": [
+    "Berry Mix",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л / 1 л",
+    "en": "0.5 L / 1 L"
+   }
+  },
+  "fresh-orange": {
+   "price": "77 000",
+   "ru": [
+    "Апельсиновый фреш",
+    ""
+   ],
+   "en": [
+    "Fresh Orange Juice",
+    ""
+   ]
+  },
+  "fresh-apple": {
+   "price": "57 000",
+   "ru": [
+    "Яблочный фреш",
+    ""
+   ],
+   "en": [
+    "Fresh Apple Juice",
+    ""
+   ]
+  },
+  "fresh-carrot": {
+   "price": "43 000",
+   "ru": [
+    "Морковный фреш",
+    ""
+   ],
+   "en": [
+    "Fresh Carrot Juice",
+    ""
+   ]
+  },
+  "fresh-apple-carrot": {
+   "price": "55 000",
+   "ru": [
+    "Яблочно-морковный фреш",
+    ""
+   ],
+   "en": [
+    "Fresh Apple & Carrot Juice",
+    ""
+   ]
+  },
+  "fresh-lemon": {
+   "price": "55 000",
+   "ru": [
+    "Лимонный фреш",
+    ""
+   ],
+   "en": [
+    "Fresh Lemon Juice",
+    ""
+   ]
+  },
+  "tea-black": {
+   "price": "19 000",
+   "ru": [
+    "Чёрный чай",
+    ""
+   ],
+   "en": [
+    "Black Tea",
+    ""
+   ]
+  },
+  "tea-green": {
+   "price": "19 000",
+   "ru": [
+    "Зелёный чай",
+    ""
+   ],
+   "en": [
+    "Green Tea",
+    ""
+   ]
+  },
+  "tea-jasmine": {
+   "price": "27 000",
+   "ru": [
+    "Жасминовый чай",
+    ""
+   ],
+   "en": [
+    "Jasmine Tea",
+    ""
+   ]
+  },
+  "tea-black-lemon": {
+   "price": "31 000",
+   "ru": [
+    "Чёрный чай с лимоном",
+    ""
+   ],
+   "en": [
+    "Black Tea with Lemon",
+    ""
+   ]
+  },
+  "tea-green-lemon": {
+   "price": "31 000",
+   "ru": [
+    "Зелёный чай с лимоном",
+    ""
+   ],
+   "en": [
+    "Green Tea with Lemon",
+    ""
+   ]
+  },
+  "tea-ginger": {
+   "price": "53 000",
+   "ru": [
+    "Имбирный чай",
+    ""
+   ],
+   "en": [
+    "Ginger Tea",
+    ""
+   ]
+  },
+  "tea-milk-ginger": {
+   "price": "63 000",
+   "ru": [
+    "Молочный имбирный чай",
+    ""
+   ],
+   "en": [
+    "Ginger Milk Tea",
+    ""
+   ]
+  },
+  "tea-moroccan": {
+   "price": "69 000",
+   "ru": [
+    "Марокканский чай",
+    ""
+   ],
+   "en": [
+    "Moroccan Tea",
+    ""
+   ]
+  },
+  "tea-berry": {
+   "price": "67 000",
+   "ru": [
+    "Ягодный чай",
+    ""
+   ],
+   "en": [
+    "Berry Tea",
+    ""
+   ]
+  },
+  "tea-mango-pineapple": {
+   "price": "71 000",
+   "ru": [
+    "Манго-ананасовый чай",
+    ""
+   ],
+   "en": [
+    "Mango & Pineapple Tea",
+    ""
+   ]
+  },
+  "tea-citrus": {
+   "price": "71 000",
+   "ru": [
+    "Цитрусовый чай",
+    ""
+   ],
+   "en": [
+    "Citrus Tea",
+    ""
+   ]
+  },
+  "tea-sea-buckthorn": {
+   "price": "73 000",
+   "ru": [
+    "Облепиховый чай с малиной",
+    ""
+   ],
+   "en": [
+    "Sea Buckthorn & Raspberry Tea",
+    ""
+   ]
+  },
+  "coca-cola": {
+   "price": "25 000",
+   "ru": [
+    "Coca-Cola",
+    ""
+   ],
+   "en": [
+    "Coca-Cola",
+    ""
+   ],
+   "variant": {
+    "ru": "0,25 л",
+    "en": "0.25 L"
+   }
+  },
+  "coca-cola-zero": {
+   "price": "25 000",
+   "ru": [
+    "Coca-Cola без сахара",
+    ""
+   ],
+   "en": [
+    "Coca-Cola No Sugar",
+    ""
+   ],
+   "variant": {
+    "ru": "0,25 л",
+    "en": "0.25 L"
+   }
+  },
+  "fanta": {
+   "price": "25 000",
+   "ru": [
+    "Fanta",
+    ""
+   ],
+   "en": [
+    "Fanta",
+    ""
+   ],
+   "variant": {
+    "ru": "0,25 л",
+    "en": "0.25 L"
+   }
+  },
+  "sprite": {
+   "price": "25 000",
+   "ru": [
+    "Sprite",
+    ""
+   ],
+   "en": [
+    "Sprite",
+    ""
+   ],
+   "variant": {
+    "ru": "0,25 л",
+    "en": "0.25 L"
+   }
+  },
+  "water-still": {
+   "price": "7 000",
+   "ru": [
+    "Вода без газа",
+    ""
+   ],
+   "en": [
+    "Still Water",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л",
+    "en": "0.5 L"
+   }
+  },
+  "water-sparkling": {
+   "price": "7 000",
+   "ru": [
+    "Вода с газом",
+    ""
+   ],
+   "en": [
+    "Sparkling Water",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л",
+    "en": "0.5 L"
+   }
+  },
+  "shake-banana": {
+   "price": "53 000",
+   "ru": [
+    "Банановый шейк",
+    ""
+   ],
+   "en": [
+    "Banana Shake",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л",
+    "en": "0.5 L"
+   }
+  },
+  "shake-nutella": {
+   "price": "57 000",
+   "ru": [
+    "Шейк с нутеллой",
+    ""
+   ],
+   "en": [
+    "Nutella Shake",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л",
+    "en": "0.5 L"
+   }
+  },
+  "shake-peach": {
+   "price": "57 000",
+   "ru": [
+    "Персиковый шейк",
+    ""
+   ],
+   "en": [
+    "Peach Shake",
+    ""
+   ],
+   "variant": {
+    "ru": "0,5 л",
+    "en": "0.5 L"
+   }
   }
  },
  "sections": [
@@ -1110,24 +1807,195 @@ html[lang="ru"] .m-name { font-size: 26px; }
     "churros",
     "crepes"
    ]
+  },
+  {
+   "id": "coffee",
+   "title": {
+    "ru": "Кофе",
+    "en": "Coffee"
+   },
+   "items": [
+    "espresso",
+    "americano",
+    "cappuccino",
+    "latte",
+    "flat-white",
+    "mocha",
+    "honey-raf",
+    "cup-brulee",
+    "condensed-cappuccino",
+    "cinnabon-coffee",
+    "frappuccino"
+   ]
+  },
+  {
+   "id": "iced-coffee",
+   "title": {
+    "ru": "Холодный кофе",
+    "en": "Iced Coffee"
+   },
+   "items": [
+    "iced-americano",
+    "iced-cappuccino",
+    "iced-latte"
+   ]
+  },
+  {
+   "id": "lemonades",
+   "title": {
+    "ru": "Лимонады",
+    "en": "Lemonades"
+   },
+   "items": [
+    "lem-watermelon-melon",
+    "lem-lime-cherry",
+    "lem-raspberry-passion",
+    "lem-mango-passion",
+    "mojito-classic",
+    "mojito-strawberry",
+    "lem-berry-mix"
+   ]
+  },
+  {
+   "id": "fresh",
+   "title": {
+    "ru": "Фреши",
+    "en": "Fresh Juices"
+   },
+   "items": [
+    "fresh-orange",
+    "fresh-apple",
+    "fresh-carrot",
+    "fresh-apple-carrot",
+    "fresh-lemon"
+   ]
+  },
+  {
+   "id": "tea",
+   "title": {
+    "ru": "Чай",
+    "en": "Tea"
+   },
+   "items": [
+    "tea-black",
+    "tea-green",
+    "tea-jasmine",
+    "tea-black-lemon",
+    "tea-green-lemon",
+    "tea-ginger",
+    "tea-milk-ginger",
+    "tea-moroccan",
+    "tea-berry",
+    "tea-mango-pineapple",
+    "tea-citrus",
+    "tea-sea-buckthorn"
+   ]
+  },
+  {
+   "id": "soft-drinks",
+   "title": {
+    "ru": "Холодные напитки",
+    "en": "Soft Drinks"
+   },
+   "items": [
+    "coca-cola",
+    "coca-cola-zero",
+    "fanta",
+    "sprite",
+    "water-still",
+    "water-sparkling"
+   ]
+  },
+  {
+   "id": "shakes",
+   "title": {
+    "ru": "Шейки",
+    "en": "Shakes"
+   },
+   "items": [
+    "shake-banana",
+    "shake-nutella",
+    "shake-peach"
+   ]
   }
  ],
- "desktopColumns": [
-  [
-   "breakfast",
-   "salads"
-  ],
-  [
-   "signature",
-   "burgers",
-   "sides"
-  ],
-  [
-   "soups",
-   "steaks",
-   "pasta",
-   "desserts"
-  ]
+ "parts": [
+  {
+   "id": "kitchen",
+   "nav": {
+    "ru": "Кухня",
+    "en": "Kitchen"
+   },
+   "title": {
+    "ru": "МЕНЮ",
+    "en": "MENU"
+   },
+   "placeholders": true,
+   "sections": [
+    "signature",
+    "breakfast",
+    "salads",
+    "burgers",
+    "sides",
+    "soups",
+    "steaks",
+    "pasta",
+    "desserts"
+   ],
+   "desktopColumns": [
+    [
+     "breakfast",
+     "salads"
+    ],
+    [
+     "signature",
+     "burgers",
+     "sides"
+    ],
+    [
+     "soups",
+     "steaks",
+     "pasta",
+     "desserts"
+    ]
+   ]
+  },
+  {
+   "id": "bar",
+   "nav": {
+    "ru": "Бар",
+    "en": "Bar"
+   },
+   "title": {
+    "ru": "БАР",
+    "en": "BAR"
+   },
+   "placeholders": false,
+   "sections": [
+    "coffee",
+    "iced-coffee",
+    "shakes",
+    "tea",
+    "fresh",
+    "lemonades",
+    "soft-drinks"
+   ],
+   "desktopColumns": [
+    [
+     "coffee",
+     "iced-coffee",
+     "shakes"
+    ],
+    [
+     "tea",
+     "fresh"
+    ],
+    [
+     "lemonades",
+     "soft-drinks"
+    ]
+   ]
+  }
  ]
 }
 </script>
@@ -1154,6 +2022,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
       <span class="title-line draw"></span>
     </div>
     <p class="hint" id="hint"></p>
+    <nav class="parts-nav" id="parts-nav"></nav>
   </header>
 
   <main class="menu" id="menu"></main>
@@ -1184,22 +2053,22 @@ html[lang="ru"] .m-name { font-size: 26px; }
 (function () {
   'use strict';
 
-  /* Photos: put files into the "photos" folder next to this page, named by dish id
+  /* Photos: files in the "photos" folder next to this page, named by dish id
      (photos/palinger-burger.jpg …, see photos/README.txt), 4:3, at least 1200×900.
-     Missing files show a numbered placeholder. */
+     The build marks which dishes have a photo; kitchen dishes without one open a "coming soon" card. */
   var PHOTO_DIR = 'photos/';
   var PHOTO_EXT = '.jpg';
 
   var UI = {
     en: {
-      title: 'Palinger — Menu', menu: 'MENU', hint: 'Tap a dish to see its photo', photo: 'PHOTO',
-      close: 'Close photo', prev: 'Previous dish', next: 'Next dish',
-      sections: 'Menu sections', lang: 'Language', dialog: 'Dish photo'
+      title: 'Palinger — Menu', menu: 'MENU', hint: 'Tap a dish to see its photo', soon: 'PHOTO COMING SOON',
+      close: 'Close photo', prev: 'Previous dish', next: 'Next dish', parts: 'Menu parts',
+      sections: 'Menu sections', lang: 'Language', dialog: 'Dish photo', currency: 'Prices are in Uzbek sum'
     },
     ru: {
-      title: 'Palinger — Меню', menu: 'МЕНЮ', hint: 'Нажмите на блюдо — откроется фото', photo: 'ФОТО',
-      close: 'Закрыть фото', prev: 'Предыдущее блюдо', next: 'Следующее блюдо',
-      sections: 'Разделы меню', lang: 'Язык', dialog: 'Фото блюда'
+      title: 'Palinger — Меню', menu: 'МЕНЮ', hint: 'Нажмите на блюдо — откроется фото', soon: 'ФОТО СКОРО',
+      close: 'Закрыть фото', prev: 'Предыдущее блюдо', next: 'Следующее блюдо', parts: 'Части меню',
+      sections: 'Разделы меню', lang: 'Язык', dialog: 'Фото блюда', currency: 'Цены указаны в сумах'
     }
   };
 
@@ -1207,22 +2076,27 @@ html[lang="ru"] .m-name { font-size: 26px; }
   var DATA = JSON.parse(document.getElementById('menu-data').textContent);
   var SECTIONS = DATA.sections;
   var SEC = {};
-  var PHOTO_NO = {};  // dish id -> placeholder number, counted through the regular sections
-  SECTIONS.forEach(function (s) {
-    SEC[s.id] = s;
-    if (s.signature) return;
-    s.items.forEach(function (id) { if (!PHOTO_NO[id]) PHOTO_NO[id] = Object.keys(PHOTO_NO).length + 1; });
-  });
+  SECTIONS.forEach(function (s) { SEC[s.id] = s; });
+  // parts of the menu (kitchen, bar); each lists its sections in page order
+  var PARTS = DATA.parts;
+  var PART_OF = {};
+  PARTS.forEach(function (p) { p.sections.forEach(function (id) { PART_OF[id] = p; }); });
+  var ORDERED = [];
+  PARTS.forEach(function (p) { p.sections.forEach(function (id) { if (SEC[id]) ORDERED.push(SEC[id]); }); });
+
   // one entry per row on the page, in reading order; Signature dishes repeat a dish from its own section
   var DISHES = [];
-  SECTIONS.forEach(function (s) {
+  ORDERED.forEach(function (s) {
     s.items.forEach(function (id, k) {
       var d = DATA.dishes[id];
-      DISHES.push({ i: DISHES.length, k: k, sec: s, id: id, no: PHOTO_NO[id] || DISHES.length + 1,
-        price: d.price, variant: d.variant || null, en: d.en, ru: d.ru });
+      DISHES.push({ i: DISHES.length, k: k, sec: s, part: PART_OF[s.id], id: id, photo: d.photo || false,
+        price: d.price || null, variant: d.variant || null, en: d.en, ru: d.ru });
     });
   });
-  var N = DISHES.length;
+  // rows that open the photo view: every dish with a photo, plus kitchen dishes (they show a "coming soon" card)
+  var VIEW = DISHES.filter(function (d) { return d.photo || d.part.placeholders; });
+  VIEW.forEach(function (d, v) { d.v = v; });
+  var N = VIEW.length;
 
   var motion = root.classList.contains('motion');
   var mqDesk = matchMedia('(min-width: 1180px)');
@@ -1243,12 +2117,17 @@ html[lang="ru"] .m-name { font-size: 26px; }
   /* ================= menu rendering ================= */
 
   function dishHTML(d) {
-    var t = d[lang];
-    return '<li><button type="button" class="dish" data-i="' + d.i + '">' +
+    var t = d[lang], open = d.v !== undefined;
+    var inner =
       '<span class="dish-head"><span class="dish-name">' + esc(t[0]) + '</span>' +
-      '<span class="leader" aria-hidden="true"></span><span class="price">' + esc(d.price) + '</span></span>' +
+      (d.price ? '<span class="leader" aria-hidden="true"></span><span class="price">' + esc(d.price) + '</span>' : '') +
+      '</span>' +
       (d.variant ? '<span class="dish-variant">' + esc(d.variant[lang]) + '</span>' : '') +
-      '<span class="dish-desc">' + esc(t[1]) + '</span></button></li>';
+      (t[1] ? '<span class="dish-desc">' + esc(t[1]) + '</span>' : '');
+    var cls = 'dish' + (d.price && d.price.indexOf('/') > -1 ? ' dish--multi' : '');
+    return open
+      ? '<li><button type="button" class="' + cls + '" data-v="' + d.v + '" aria-haspopup="dialog">' + inner + '</button></li>'
+      : '<li><div class="' + cls + ' dish--static">' + inner + '</div></li>';
   }
 
   function dishesOf(s) {
@@ -1268,20 +2147,41 @@ html[lang="ru"] .m-name { font-size: 26px; }
       '<div class="dbl"></div><ul class="dishes">' + dishesOf(s) + '</ul></section>';
   }
 
-  function renderMenu() {
-    if (mqDesk.matches && DATA.desktopColumns) {
+  function partHTML(p, n) {
+    // the first part sits under the masthead's MENU title; later parts (the bar) get their own title row
+    var head = n === 0 ? '' :
+      '<div class="part-head"><div class="rule-2"></div><div class="title-row">' +
+      '<span class="title-line"></span><h2 class="part-title">' + esc(p.title[lang]) + '</h2>' +
+      '<span class="title-line"></span></div></div>';
+    var body;
+    if (mqDesk.matches && p.desktopColumns) {
       // the printed three-column page; which sections go where is set in the menu data
-      menuEl.innerHTML = '<div class="cols">' + DATA.desktopColumns.map(function (col, c) {
+      body = '<div class="cols">' + p.desktopColumns.map(function (col, c) {
         return '<div class="col' + (c === 1 ? ' col-mid' : '') + '">' +
           col.map(function (id) { return SEC[id] ? sectionHTML(SEC[id]) : ''; }).join('') + '</div>';
       }).join('') + '</div>';
     } else {
-      menuEl.innerHTML = SECTIONS.map(sectionHTML).join('');
+      body = p.sections.map(function (id) { return SEC[id] ? sectionHTML(SEC[id]) : ''; }).join('');
     }
+    return '<div class="part part--' + p.id + '" id="p-' + p.id + '">' + head + body + '</div>';
+  }
+
+  function renderMenu() {
+    menuEl.innerHTML = PARTS.map(partHTML).join('') +
+      '<p class="currency">' + esc(UI[lang].currency) + '</p>';
     rows = [];
-    menuEl.querySelectorAll('.dish').forEach(function (b) { rows[+b.dataset.i] = b; });
+    menuEl.querySelectorAll('.dish[data-v]').forEach(function (b) { rows[+b.dataset.v] = b; });
+    renderPartsNav();
     renderIndex();
     observeSections();
+  }
+
+  function renderPartsNav() {
+    var nav = $('parts-nav');
+    nav.setAttribute('aria-label', UI[lang].parts);
+    nav.innerHTML = PARTS.map(function (p) {
+      return '<button type="button" data-target="p-' + p.id + '">' + esc(p.nav[lang]) + '</button>';
+    }).join('<span class="parts-dot" aria-hidden="true">·</span>');
   }
 
   /* ================= language ================= */
@@ -1311,24 +2211,30 @@ html[lang="ru"] .m-name { font-size: 26px; }
     });
   }
 
+  var wantLang = lang, fading = false;
   function setLang(next, opts) {
     if (next !== 'en' && next !== 'ru') return;
     opts = opts || {};
+    wantLang = next;
     try { localStorage.setItem('palinger-lang', next); } catch (e) {}
     if (location.hash.slice(1) !== next) history.replaceState(history.state, '', '#' + next);
+    if (fading) return;                       // the running fade applies the latest choice when it ends
     if (next === lang && !opts.force) return;
     var swap = function () {
-      lang = next;
+      if (wantLang === lang && !opts.force) return;
+      lang = wantLang;
       syncLangUI();
       renderMenu();
       revealAllNow();
     };
     if (!motion || opts.instant) { swap(); return; }
+    fading = true;
     var out = menuEl.animate(
       [{ opacity: 1, filter: 'blur(0px)' }, { opacity: 0, filter: 'blur(3px)' }],
       { duration: 170, easing: 'ease-out', fill: 'forwards' }
     );
     out.onfinish = function () {
+      fading = false;
       swap();
       out.cancel();
       menuEl.animate(
@@ -1388,20 +2294,28 @@ html[lang="ru"] .m-name { font-size: 26px; }
   /* ================= sticky index + scrollspy ================= */
 
   function renderIndex() {
-    indexScroll.innerHTML = SECTIONS.map(function (s) {
-      return '<button type="button" data-target="s-' + s.id + '">' + esc(s.title[lang]) + '</button>';
+    indexScroll.innerHTML = PARTS.map(function (p, n) {
+      return (n ? '<button type="button" class="index-part" data-target="p-' + p.id + '">' + esc(p.nav[lang]) + '</button>' : '') +
+        p.sections.map(function (id) {
+          return SEC[id] ? '<button type="button" data-target="s-' + id + '">' + esc(SEC[id].title[lang]) + '</button>' : '';
+        }).join('');
     }).join('') + '<span class="index-ind" aria-hidden="true"></span>';
     activeSec = null;
     onScroll();
   }
 
-  indexScroll.addEventListener('click', function (e) {
+  function jumpTo(e) {
     var b = e.target.closest('button[data-target]');
     if (!b) return;
     var el = $(b.dataset.target);
+    if (!el) return;
     var y = el.getBoundingClientRect().top + window.scrollY - (indexEl.offsetHeight + 14);
     window.scrollTo({ top: y, behavior: motion ? 'smooth' : 'auto' });
-  });
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+    el.focus({ preventScroll: true });
+  }
+  indexScroll.addEventListener('click', jumpTo);
+  $('parts-nav').addEventListener('click', jumpTo);
 
   var activeSec = null, ticking = false;
   function onScroll() {
@@ -1409,7 +2323,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
     var mastBottom = $('title-row').getBoundingClientRect().bottom;
     indexEl.classList.toggle('show', mastBottom < 0 && !mqDesk.matches);
     var secs = menuEl.querySelectorAll('.sec'), cur = secs[0] ? secs[0].id : null;
-    var line = window.innerHeight * 0.38;
+    var line = Math.max(window.innerHeight * 0.38, indexEl.offsetHeight + 130);
     secs.forEach(function (s) { if (s.getBoundingClientRect().top <= line) cur = s.id; });
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4 && secs.length) {
       cur = secs[secs.length - 1].id;
@@ -1417,7 +2331,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
     if (cur !== activeSec) {
       activeSec = cur;
       var ind = indexScroll.querySelector('.index-ind'), on = null;
-      indexScroll.querySelectorAll('button').forEach(function (b) {
+      indexScroll.querySelectorAll('button:not(.index-part)').forEach(function (b) {
         var hit = b.dataset.target === cur;
         b.classList.toggle('on', hit);
         if (hit) on = b;
@@ -1439,29 +2353,29 @@ html[lang="ru"] .m-name { font-size: 26px; }
   var canAnimate = typeof Element.prototype.animate === 'function';
 
   function slideHTML(d) {
-    var t = d[lang], no = pad(d.no);
-    return '<article class="slide" data-i="' + d.i + '" aria-roledescription="slide">' +
-      '<figure class="plate"><div class="plate-in">' +
-      '<div class="ph" aria-hidden="true"><span class="ph-crop"></span><span class="ph-no">' + no + '</span>' +
-      '<span class="ph-cap">' + UI[lang].photo + ' · 4:3</span></div>' +
-      '<img alt="' + esc(t[0]) + '" decoding="async" data-src="' + PHOTO_DIR + d.id + PHOTO_EXT + '">' +
+    var t = d[lang];
+    return '<article class="slide" data-v="' + d.v + '" aria-roledescription="slide">' +
+      '<figure class="plate"><div class="plate-in' + (d.photo ? ' has-photo' : '') + '">' +
+      '<div class="ph" aria-hidden="true"><span class="ph-crop"></span><span class="ph-logo"></span>' +
+      '<span class="ph-cap">' + esc(UI[lang].soon) + '</span></div>' +
+      (d.photo ? '<img alt="' + esc(t[0]) + '" draggable="false" decoding="async" data-src="' + PHOTO_DIR + d.id + PHOTO_EXT + '?v=' + esc(d.photo) + '">' : '') +
       '</div></figure>' +
-      '<div class="meta"><h2 class="m-name" id="m-name-' + d.i + '">' + esc(t[0]) + '</h2>' +
+      '<div class="meta"><h2 class="m-name" id="m-name-' + d.v + '">' + esc(t[0]) + '</h2>' +
       '<div class="m-rule"></div>' +
       (d.variant ? '<p class="m-variant">' + esc(d.variant[lang]) + '</p>' : '') +
-      '<p class="m-desc">' + esc(t[1]) + '</p>' +
-      '<p class="m-price"><span class="leader" aria-hidden="true"></span><b>' + esc(d.price) + '</b></p></div>' +
-      '</article>';
+      (t[1] ? '<p class="m-desc">' + esc(t[1]) + '</p>' : '') +
+      (d.price ? '<p class="m-price"><span class="leader" aria-hidden="true"></span><b>' + esc(d.price) + '</b></p>' : '') +
+      '</div></article>';
   }
 
   function buildSlides() {
     if (slidesLang === lang) return;
-    rail.innerHTML = DISHES.map(slideHTML).join('');
+    rail.innerHTML = VIEW.map(slideHTML).join('');
     slides = Array.prototype.slice.call(rail.children);
     slidesLang = lang;
     $('lb-total').textContent = pad(N);
-    ticksEl.innerHTML = DISHES.map(function (d) {
-      return '<i' + (d.k === 0 && d.i > 0 ? ' class="gap"' : '') + '></i>';
+    ticksEl.innerHTML = VIEW.map(function (d, v) {
+      return '<i' + (v > 0 && VIEW[v - 1].sec !== d.sec ? ' class="gap"' : '') + '></i>';
     }).join('');
   }
 
@@ -1472,7 +2386,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
     if (!img || img.dataset.state) return;
     img.dataset.state = 'loading';
     img.onload = function () { img.dataset.state = 'ok'; img.classList.add('ok'); };
-    img.onerror = function () { img.dataset.state = 'none'; img.remove(); };
+    img.onerror = function () { img.dataset.state = 'none'; img.parentNode.classList.remove('has-photo'); img.remove(); };
     img.src = img.dataset.src;
   }
 
@@ -1485,11 +2399,13 @@ html[lang="ru"] .m-name { font-size: 26px; }
     i = Math.max(0, Math.min(N - 1, i));
     cur = i;
     railTo(i, animate !== false && motion);
-    var d = DISHES[i];
+    var d = VIEW[i];
     $('lb-cur').textContent = pad(i + 1);
     $('lb-sec').textContent = d.sec.title[lang];
+    var focused = document.activeElement;
     $('lb-prev').disabled = i === 0;
     $('lb-next').disabled = i === N - 1;
+    if (focused && focused.disabled) (N > 1 ? (focused.id === 'lb-next' ? $('lb-prev') : $('lb-next')) : $('lb-close')).focus();
     lb.setAttribute('aria-labelledby', 'm-name-' + i);
     slides.forEach(function (s, k) {
       var on = k === i;
@@ -1606,8 +2522,8 @@ html[lang="ru"] .m-name { font-size: 26px; }
   window.addEventListener('popstate', function () { if (isOpen) { pushed = false; close(); } });
 
   menuEl.addEventListener('click', function (e) {
-    var b = e.target.closest('.dish');
-    if (b) open(+b.dataset.i, b);
+    var b = e.target.closest('.dish[data-v]');
+    if (b) open(+b.dataset.v, b);
   });
   $('lb-close').addEventListener('click', requestClose);
   $('lb-prev').addEventListener('click', function () { go(cur - 1); });
@@ -1658,6 +2574,12 @@ html[lang="ru"] .m-name { font-size: 26px; }
     var d = drag;
     drag = null;
     var dt = Math.max(1, performance.now() - d.t0);
+    if (e.type === 'pointerup') {
+      // trust where the finger left the screen, not the last (possibly coalesced) move event
+      d.dx = e.clientX - d.x0;
+      d.dy = e.clientY - d.y0;
+      if (!d.axis && (Math.abs(d.dx) > 24 || Math.abs(d.dy) > 24)) d.axis = Math.abs(d.dx) > Math.abs(d.dy) ? 'x' : 'y';
+    }
     if (e.type !== 'pointerup') {  // cancelled by the system (edge-swipe back, incoming call…): snap back
       if (d.axis === 'x') go(cur, true);
       lb.style.transition = 'transform 300ms cubic-bezier(.32,.72,0,1)';
@@ -1677,6 +2599,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
       }
     }
   }
+  stage.addEventListener('dragstart', function (e) { e.preventDefault(); });
   stage.addEventListener('pointerup', endDrag);
   stage.addEventListener('pointercancel', endDrag);
   stage.addEventListener('lostpointercapture', endDrag);
@@ -1690,7 +2613,21 @@ html[lang="ru"] .m-name { font-size: 26px; }
     renderMenu();
     if (location.hash.slice(1) !== lang) history.replaceState(null, '', '#' + lang);
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    mqDesk.addEventListener('change', function () { renderMenu(); revealAllNow(); });
+    mqDesk.addEventListener('change', function () {
+      var top = indexEl.offsetHeight;
+      var anchor = Array.prototype.find.call(menuEl.querySelectorAll('.sec'), function (sec) {
+        return sec.getBoundingClientRect().bottom > top;
+      });
+      var offset = anchor ? anchor.getBoundingClientRect().top : 0;
+      renderMenu();
+      revealAllNow();
+      var again = anchor && $(anchor.id);
+      if (again) window.scrollTo(0, window.scrollY + again.getBoundingClientRect().top - offset);
+    });
+    // web fonts change text widths: re-measure the index underline when they arrive
+    if (document.fonts && document.fonts.addEventListener) {
+      document.fonts.addEventListener('loadingdone', function () { activeSec = null; onScroll(); });
+    }
     window.addEventListener('resize', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } });
 
     var start = function () {
