@@ -34,6 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- non-blocking: a slow font host must not hold back the first paint -->
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&text=%D8%AD%D9%84%D8%A7%D9%84&display=swap">
 <link rel="stylesheet" id="webfonts" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Josefin+Sans:wght@400;600&family=Libre+Franklin:wght@400;500&family=Old+Standard+TT:wght@700&family=Zilla+Slab:wght@500;700&display=swap">
 <style>
 :root {
@@ -141,6 +142,23 @@ button { font: inherit; color: inherit; }
 }
 
 /* ---------- masthead ---------- */
+.halal { position: absolute; top: -6px; left: -4px; width: 62px; height: 62px; z-index: 2; }
+.halal svg { display: block; width: 100%; height: 100%; }
+@media (min-width: 640px) { .halal { width: 74px; height: 74px; top: -12px; left: -22px; } }
+@media (min-width: 1180px) { .halal { width: 92px; height: 92px; top: -18px; left: -30px; } }
+
+/* sold out: the row stays readable but steps back */
+.dish--out .dish-name-t, .dish--out .dish-variant, .dish--out .dish-desc { opacity: .45; }
+.dish--out .leader { opacity: .35; }
+.price--out {
+  font-family: var(--f-caps);
+  font-weight: var(--caps-weight);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+html[lang="ru"] .price--out { font-size: 13px; letter-spacing: .08em; }
 .mast { position: relative; text-align: center; }
 .lang--mast { position: absolute; top: -12px; right: -10px; z-index: 2; }
 .logo {
@@ -1672,7 +1690,8 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "variant": {
     "ru": "0,5 л",
     "en": "0.5 L"
-   }
+   },
+   "soldOut": true
   },
   "shake-nutella": {
    "price": "57 000",
@@ -1687,7 +1706,8 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "variant": {
     "ru": "0,5 л",
     "en": "0.5 L"
-   }
+   },
+   "soldOut": true
   },
   "shake-peach": {
    "price": "57 000",
@@ -1702,7 +1722,8 @@ html[lang="ru"] .m-name { font-size: 26px; }
    "variant": {
     "ru": "0,5 л",
     "en": "0.5 L"
-   }
+   },
+   "soldOut": true
   }
  },
  "sections": [
@@ -2020,6 +2041,15 @@ html[lang="ru"] .m-name { font-size: 26px; }
 <div class="sheet" id="sheet">
   <header class="mast" id="mast">
     <div class="lang lang--mast" data-lang-switch></div>
+    <div class="halal" role="img" aria-label="Halal">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="47" fill="none" stroke="#EFE9DC" stroke-width="1.6"/>
+        <circle cx="50" cy="50" r="42.5" fill="none" stroke="#EFE9DC" stroke-width=".8"/>
+        <text x="50" y="55" text-anchor="middle" font-family="Amiri, 'Noto Naskh Arabic', 'Geeza Pro', serif" font-weight="700" font-size="31" fill="#EFE9DC">حلال</text>
+        <line x1="30" y1="65" x2="70" y2="65" stroke="#C9CFDA" stroke-width=".7"/>
+        <text x="50" y="79" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-weight="600" font-size="11" letter-spacing="3.2" fill="#C9CFDA">HALAL</text>
+      </svg>
+    </div>
     <div class="logo" role="img" aria-label="Palinger — Made in Holland"></div>
     <div class="rule-1 draw"></div>
     <div class="dateline">
@@ -2075,12 +2105,12 @@ html[lang="ru"] .m-name { font-size: 26px; }
     en: {
       title: 'Palinger — Menu', menu: 'MENU', hint: 'Tap a dish to see its photo', soon: 'PHOTO COMING SOON',
       close: 'Close photo', prev: 'Previous dish', next: 'Next dish', parts: 'Menu parts',
-      sections: 'Menu sections', lang: 'Language', dialog: 'Dish photo', currency: 'Prices are in Uzbek sum'
+      sections: 'Menu sections', lang: 'Language', dialog: 'Dish photo', currency: 'Prices are in Uzbek sum', soldOut: 'Sold out'
     },
     ru: {
       title: 'Palinger — Меню', menu: 'МЕНЮ', hint: 'Нажмите на блюдо — откроется фото', soon: 'ФОТО СКОРО',
       close: 'Закрыть фото', prev: 'Предыдущее блюдо', next: 'Следующее блюдо', parts: 'Части меню',
-      sections: 'Разделы меню', lang: 'Язык', dialog: 'Фото блюда', currency: 'Цены указаны в сумах'
+      sections: 'Разделы меню', lang: 'Язык', dialog: 'Фото блюда', currency: 'Цены указаны в сумах', soldOut: 'Нет в наличии'
     }
   };
 
@@ -2102,7 +2132,7 @@ html[lang="ru"] .m-name { font-size: 26px; }
     s.items.forEach(function (id, k) {
       var d = DATA.dishes[id];
       DISHES.push({ i: DISHES.length, k: k, sec: s, part: PART_OF[s.id], id: id, photo: d.photo || false,
-        price: d.price || null, variant: d.variant || null, en: d.en, ru: d.ru });
+        price: d.price || null, variant: d.variant || null, soldOut: !!d.soldOut, en: d.en, ru: d.ru });
     });
   });
   // rows that open the photo view: every dish with a photo, plus kitchen dishes (they show a "coming soon" card)
@@ -2132,12 +2162,13 @@ html[lang="ru"] .m-name { font-size: 26px; }
     var t = d[lang], open = d.v !== undefined;
     var inner =
       '<span class="dish-head"><span class="dish-name"><span class="dish-name-t">' + esc(t[0]) + '</span>' +
-      (d.price ? '<span class="leader" aria-hidden="true"></span>' : '') + '</span>' +
-      (d.price ? '<span class="price">' + esc(d.price) + '</span>' : '') +
+      (d.price || d.soldOut ? '<span class="leader" aria-hidden="true"></span>' : '') + '</span>' +
+      (d.soldOut ? '<span class="price price--out">' + esc(UI[lang].soldOut) + '</span>'
+        : d.price ? '<span class="price">' + esc(d.price) + '</span>' : '') +
       '</span>' +
       (d.variant ? '<span class="dish-variant">' + esc(d.variant[lang]) + '</span>' : '') +
       (t[1] ? '<span class="dish-desc">' + esc(t[1]) + '</span>' : '');
-    var cls = 'dish';
+    var cls = 'dish' + (d.soldOut ? ' dish--out' : '');
     return open
       ? '<li><button type="button" class="' + cls + '" data-v="' + d.v + '" aria-haspopup="dialog">' + inner + '</button></li>'
       : '<li><div class="' + cls + ' dish--static">' + inner + '</div></li>';
