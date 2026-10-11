@@ -24,7 +24,7 @@ File name = dish id below. [+] = photo present, [ ] = no photo yet.
   [+] stracciatella.jpg  —  Салат со страчателлой / Stracciatella Salad
 
 Бургеры / Burgers
-  [+] palinger-burger.jpg  —  Палингер Бургер / Palinger Burger
+  [ ] palinger-burger.jpg  —  Палингер Бургер / Palinger Burger
   [+] smash-burger.jpg  —  Смеш Бургер / Smash Burger
   [+] medallion-burger.jpg  —  Бургер Медальон / Medallion Burger
 
