@@ -42,13 +42,13 @@ File name = dish id below. [+] = photo present, [ ] = no photo yet.
 
 Пасты / Pasta
   [+] pasta-alfredo.jpg  —  Паста Альфредо / Pasta Alfredo
-  [ ] pasta-carbonara.jpg  —  Паста Карбонара / Pasta Carbonara
-  [ ] seafood-pasta.jpg  —  Паста с морепродуктами / Seafood Pasta
+  [+] pasta-carbonara.jpg  —  Паста Карбонара / Pasta Carbonara
+  [+] seafood-pasta.jpg  —  Паста с морепродуктами / Seafood Pasta
 
 Десерты / Desserts
-  [ ] pancakes.jpg  —  Панкейки / Pancakes
-  [ ] churros.jpg  —  Чурос / Churros
-  [ ] crepes.jpg  —  Крепс / Crêpes
+  [+] pancakes.jpg  —  Панкейки / Pancakes
+  [+] churros.jpg  —  Чурос / Churros
+  [+] crepes.jpg  —  Крепс / Crêpes
 
 == Бар / Bar ==
 Кофе / Coffee
@@ -58,10 +58,10 @@ File name = dish id below. [+] = photo present, [ ] = no photo yet.
   [ ] latte.jpg  —  Латте / Latte
   [ ] flat-white.jpg  —  Флэт уайт / Flat White
   [ ] mocha.jpg  —  Мокко / Mocha
-  [ ] honey-raf.jpg  —  Медовый раф / Honey Raf
-  [ ] cup-brulee.jpg  —  Кап-брюле / Cup Brûlée
-  [ ] condensed-cappuccino.jpg  —  Капучино со сгущёнкой / Condensed Milk Cappuccino
-  [ ] cinnabon-coffee.jpg  —  Кофе «Синнабон» / Cinnabon Coffee
+  [+] honey-raf.jpg  —  Медовый раф / Honey Raf
+  [+] cup-brulee.jpg  —  Кап-брюле / Cup Brûlée
+  [+] condensed-cappuccino.jpg  —  Капучино со сгущёнкой / Condensed Milk Cappuccino
+  [+] cinnabon-coffee.jpg  —  Кофе «Синнабон» / Cinnabon Coffee
   [ ] frappuccino.jpg  —  Фраппучино / Frappuccino
 
 Холодный кофе / Iced Coffee
@@ -81,12 +81,12 @@ File name = dish id below. [+] = photo present, [ ] = no photo yet.
   [ ] tea-black-lemon.jpg  —  Чёрный чай с лимоном / Black Tea with Lemon
   [ ] tea-green-lemon.jpg  —  Зелёный чай с лимоном / Green Tea with Lemon
   [ ] tea-ginger.jpg  —  Имбирный чай / Ginger Tea
-  [ ] tea-milk-ginger.jpg  —  Молочный имбирный чай / Ginger Milk Tea
+  [+] tea-milk-ginger.jpg  —  Молочный имбирный чай / Ginger Milk Tea
   [ ] tea-moroccan.jpg  —  Марокканский чай / Moroccan Tea
-  [ ] tea-berry.jpg  —  Ягодный чай / Berry Tea
+  [+] tea-berry.jpg  —  Ягодный чай / Berry Tea
   [ ] tea-mango-pineapple.jpg  —  Манго-ананасовый чай / Mango & Pineapple Tea
-  [ ] tea-citrus.jpg  —  Цитрусовый чай / Citrus Tea
-  [ ] tea-sea-buckthorn.jpg  —  Облепиховый чай с малиной / Sea Buckthorn & Raspberry Tea
+  [+] tea-citrus.jpg  —  Цитрусовый чай / Citrus Tea
+  [+] tea-sea-buckthorn.jpg  —  Облепиховый чай с малиной / Sea Buckthorn & Raspberry Tea
 
 Фреши / Fresh Juices
   [ ] fresh-orange.jpg  —  Апельсиновый фреш / Fresh Orange Juice
@@ -96,13 +96,13 @@ File name = dish id below. [+] = photo present, [ ] = no photo yet.
   [ ] fresh-lemon.jpg  —  Лимонный фреш / Fresh Lemon Juice
 
 Лимонады / Lemonades
-  [ ] lem-watermelon-melon.jpg  —  Арбуз-дыня / Watermelon & Melon
-  [ ] lem-lime-cherry.jpg  —  Лайм-вишня / Lime & Cherry
-  [ ] lem-raspberry-passion.jpg  —  Малина-маракуйя / Raspberry & Passion Fruit
-  [ ] lem-mango-passion.jpg  —  Манго-маракуйя / Mango & Passion Fruit
-  [ ] mojito-classic.jpg  —  Мохито классический / Classic Mojito
-  [ ] mojito-strawberry.jpg  —  Мохито клубничный / Strawberry Mojito
-  [ ] lem-berry-mix.jpg  —  Ягодный микс / Berry Mix
+  [+] lem-watermelon-melon.jpg  —  Арбуз-дыня / Watermelon & Melon
+  [+] lem-lime-cherry.jpg  —  Лайм-вишня / Lime & Cherry
+  [+] lem-raspberry-passion.jpg  —  Малина-маракуйя / Raspberry & Passion Fruit
+  [+] lem-mango-passion.jpg  —  Манго-маракуйя / Mango & Passion Fruit
+  [+] mojito-classic.jpg  —  Мохито классический / Classic Mojito
+  [+] mojito-strawberry.jpg  —  Мохито клубничный / Strawberry Mojito
+  [+] lem-berry-mix.jpg  —  Ягодный микс / Berry Mix
 
 Холодные напитки / Soft Drinks
   [ ] coca-cola.jpg  —  Coca-Cola / Coca-Cola
