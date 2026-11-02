@@ -435,7 +435,9 @@
     if (TV) {
       // the left TV is turned clockwise and the right one counter-clockwise, so the picture turns back
       var rot = (SIDE === 'l' ? -90 : 90) * (FLIP ? -1 : 1);
-      s = Math.min(vw / SH, vh / SW);
+      // fill the whole screen: when the browser bar takes some room, crop the edges evenly
+      // instead of leaving black bands (in full screen the TV is exactly 16:9 and nothing is cut)
+      s = Math.max(vw / SH, vh / SW);
       tr = 'translate(' + vw / 2 + 'px,' + vh / 2 + 'px) rotate(' + rot + 'deg) scale(' + s + ') translate(' + (-SW / 2) + 'px,' + (-SH / 2) + 'px)';
     } else {
       s = Math.min(vw / W, vh / SH);
@@ -445,8 +447,9 @@
   }
   fit();
   window.addEventListener('resize', fit);
-  document.addEventListener('fullscreenchange', fit);
-  document.addEventListener('webkitfullscreenchange', fit);
+  function onFull() { fit(); if (typeof drawHud === 'function') drawHud(); }
+  document.addEventListener('fullscreenchange', onFull);
+  document.addEventListener('webkitfullscreenchange', onFull);
 
   /* ================= time =================
      server time = performance.now() + K. Every animation's start time is set so that its local
@@ -550,6 +553,7 @@
     else if (SYNC.ok) s += 'время: ' + SYNC.src + ', точность ±' + Math.max(1, Math.round(SYNC.err)) + ' мс';
     else s += '<span class="warn">интернет-время недоступно, иду по часам ТВ</span>';
     s += '<br>поправка ' + USER_MS + ' мс · зазор ' + GAP + ' · поворот ' + (FLIP ? 'обратный' : 'обычный');
+    if (TV && !fullScreen()) s += '<br><span class="warn">Видна панель браузера: наведите курсор на картинку и нажмите OK</span>';
     if (TV) s += '<br>OK — полный экран · ◀ ▶ поправка ±5 мс · ▲ ▼ зазор ±2';
     hud.innerHTML = s;
   }
@@ -559,12 +563,21 @@
     clearTimeout(hudTimer);
     if (!DEBUG) hudTimer = setTimeout(function () { hud.className = ''; }, ms);
   }
+  // full screen, or a browser that shows no bar at all (the page area is then exactly 16:9)
+  function fullScreen() {
+    var d = document;
+    if (d.fullscreenElement || d.webkitFullscreenElement) return true;
+    var vw = view.clientWidth, vh = view.clientHeight;
+    return vh > 0 && Math.abs(vw / vh - 16 / 9) < 0.03;
+  }
   function fullscreen() {
     var d = document, el = d.documentElement;
     if (d.fullscreenElement || d.webkitFullscreenElement) return;
-    var f = el.requestFullscreen || el.webkitRequestFullscreen;
-    if (!f) return;
-    try { var p = f.call(el); if (p && p.catch) p.catch(function () {}); } catch (e) { /* not allowed */ }
+    [el, d.body].some(function (t) {
+      var f = t.requestFullscreen || t.webkitRequestFullscreen || t.webkitRequestFullScreen;
+      if (!f) return false;
+      try { var p = f.call(t); if (p && p.catch) p.catch(function () {}); return true; } catch (e) { return false; }
+    });
   }
   function reloadWithout(param) {
     Q.delete(param);
@@ -609,7 +622,7 @@
 
   applyTime();                      // start right away on the TV's own clock
   if (TEST) requestAnimationFrame(tickCounters);
-  showHud(DEBUG ? 0 : 25000);
+  showHud(DEBUG ? 0 : (TV && !fullScreen() ? 60000 : 25000));
   var fonts = document.fonts && document.fonts.ready ? withTimeout(document.fonts.ready, 3500).catch(function () {}) : wait(800);
   var synced = withTimeout(syncFirst(), 9000).catch(function () {});
   Promise.all([fonts, synced]).then(function () { wall.className = 'on'; drawHud(); });
