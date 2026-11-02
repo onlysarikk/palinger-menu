@@ -10,7 +10,7 @@ File name = dish id below. [+] = photo present, [ ] = no photo yet.
 == Кухня / Kitchen ==
 Завтраки / Breakfast
   [+] salmon-benedict.jpg  —  Бенедикт с лососем / Salmon Benedict
-  [ ] eel-benedict.jpg  —  Бенедикт с угрём / Eel Benedict
+  [+] eel-benedict.jpg  —  Бенедикт с угрём / Eel Benedict
   [+] yogurt-bowl.jpg  —  Йогурт-боул / Yogurt Bowl
   [+] palinger-brunch.jpg  —  Палингер Бранч / Palinger Brunch
   [+] dutch-scramble.jpg  —  Голландский скрембл / Dutch Scramble
@@ -24,7 +24,7 @@ File name = dish id below. [+] = photo present, [ ] = no photo yet.
   [+] stracciatella.jpg  —  Салат со страчателлой / Stracciatella Salad
 
 Бургеры / Burgers
-  [ ] palinger-burger.jpg  —  Палингер Бургер / Palinger Burger
+  [+] palinger-burger.jpg  —  Палингер Бургер / Palinger Burger
   [+] smash-burger.jpg  —  Смеш Бургер / Smash Burger
   [+] medallion-burger.jpg  —  Бургер Медальон / Medallion Burger
 
