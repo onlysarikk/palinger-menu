@@ -87,3 +87,11 @@ body.all .ov a { color: #0B0F19; background: #EFE9DC; text-decoration: none; pad
 body.all .ov a.alt { background: transparent; color: #EFE9DC; border: 1px solid rgba(239, 233, 220, .5); }
 body.all #view { background: #0B0F19; }
 .bezel { position: absolute; top: 0; height: 1920px; background: #04060B; }
+
+/* ice cream cups cut from the LED banner: fade the edges of the picture into the wall */
+.ice {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent), linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent), linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+  mask-composite: intersect;
+}

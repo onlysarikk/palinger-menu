@@ -13,7 +13,7 @@
   var LANDMARKS = "<g id=\"lx-eiffel\"><path d=\"M0 44 C3 36 5 26 5.8 16 L6.4 6 L7 1 L7.6 6 L8.2 16 C9 26 11 36 14 44 M7 1 V-1.5\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.72\" stroke-width=\"0.532\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M2.5 44 Q7 35.5 11.5 44 M2.4 34 H11.6 M2.2 35.2 H11.8 M4.9 21 H9.1 M4.7 22 H9.3 M6.1 10 H7.9 M6.4 3 H7.6 V4.6 H6.4 Z\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.7\" stroke-width=\"0.448\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M1.2 42.5 L3.4 40.5 L1.9 38.3 L3.9 36.4 L2.6 34.6 M12.8 42.5 L10.6 40.5 L12.1 38.3 L10.1 36.4 L11.4 34.6 M3.2 34 L9.3 21 M10.8 34 L4.7 21 M5 32 L6.1 29 L5.3 26 L6.2 23 M9 32 L7.9 29 L8.7 26 L7.8 23 M5.2 21 L7.6 10 M8.8 21 L6.4 10 M6.3 18 L6.8 14 L6.4 11 M7.7 18 L7.2 14 L7.6 11 M4.5 40 Q7 37.4 9.5 40\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.5\" stroke-width=\"0.35\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g id=\"lx-pisa\"><g transform=\"rotate(5 5 44)\"><path d=\"M2 44 V10 H8 V44 M3 10 V6.2 H7 V10 M3 6.2 Q5 3.4 7 6.2 M1.6 10 H8.4 M1.6 15 H8.4 M5 3.9 V2.6\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.72\" stroke-width=\"0.532\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M2 20 H8 M2 25 H8 M2 30 H8 M2 35 H8 M2 40 H8\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.6\" stroke-width=\"0.42\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M2.20 20 V16.15 Q2.75 15.32 3.30 16.15 V20 M3.60 20 V16.15 Q4.15 15.32 4.70 16.15 V20 M5.00 20 V16.15 Q5.55 15.32 6.10 16.15 V20 M6.40 20 V16.15 Q6.95 15.32 7.50 16.15 V20 M2.20 25 V21.15 Q2.75 20.33 3.30 21.15 V25 M3.60 25 V21.15 Q4.15 20.33 4.70 21.15 V25 M5.00 25 V21.15 Q5.55 20.33 6.10 21.15 V25 M6.40 25 V21.15 Q6.95 20.33 7.50 21.15 V25 M2.20 30 V26.15 Q2.75 25.33 3.30 26.15 V30 M3.60 30 V26.15 Q4.15 25.33 4.70 26.15 V30 M5.00 30 V26.15 Q5.55 25.33 6.10 26.15 V30 M6.40 30 V26.15 Q6.95 25.33 7.50 26.15 V30 M2.20 35 V31.15 Q2.75 30.33 3.30 31.15 V35 M3.60 35 V31.15 Q4.15 30.33 4.70 31.15 V35 M5.00 35 V31.15 Q5.55 30.33 6.10 31.15 V35 M6.40 35 V31.15 Q6.95 30.33 7.50 31.15 V35 M2.20 40 V36.15 Q2.75 35.33 3.30 36.15 V40 M3.60 40 V36.15 Q4.15 35.33 4.70 36.15 V40 M5.00 40 V36.15 Q5.55 35.33 6.10 36.15 V40 M6.40 40 V36.15 Q6.95 35.33 7.50 36.15 V40 M2.20 45 V41.15 Q2.75 40.33 3.30 41.15 V45 M3.60 45 V41.15 Q4.15 40.33 4.70 41.15 V45 M5.00 45 V41.15 Q5.55 40.33 6.10 41.15 V45 M6.40 45 V41.15 Q6.95 40.33 7.50 41.15 V45\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.48\" stroke-width=\"0.308\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M3.40 10 V7.60 Q3.80 7.00 4.20 7.60 V10 M4.60 10 V7.60 Q5.00 7.00 5.40 7.60 V10 M5.80 10 V7.60 Q6.20 7.00 6.60 7.60 V10\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.55\" stroke-width=\"0.308\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g></g><g id=\"lx-bigben\"><path d=\"M1 44 V15 H7 V44 M0.5 15 H7.5 M0.5 16.2 H7.5 M1.3 15 L4 3 L6.7 15 M4 3 V0.3 M1 23 H7 M1 24 H7\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.72\" stroke-width=\"0.532\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M4 19 m-2.2 0 a2.2 2.2 0 1 0 4.4 0 a2.2 2.2 0 1 0 -4.4 0 M4 19 V17.6 M4 19 L5 19.7\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.7\" stroke-width=\"0.42\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M5.60 19.00 L5.95 19.00 M5.39 19.80 L5.69 19.98 M4.80 20.39 L4.98 20.69 M4.00 20.60 L4.00 20.95 M3.20 20.39 L3.03 20.69 M2.61 19.80 L2.31 19.98 M2.40 19.00 L2.05 19.00 M2.61 18.20 L2.31 18.03 M3.20 17.61 L3.02 17.31 M4.00 17.40 L4.00 17.05 M4.80 17.61 L4.98 17.31 M5.39 18.20 L5.69 18.02\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.65\" stroke-width=\"0.308\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M0.5 15 V13.6 M7.5 15 V13.6 M2.4 11 H5.6 M2.9 8.5 H5.1 M2.6 26 V42 M4 26 V42 M5.4 26 V42 M1 34 H7 M1.90 29 V27.00 Q2.40 26.25 2.90 27.00 V29 M3.30 29 V27.00 Q3.80 26.25 4.30 27.00 V29 M4.70 29 V27.00 Q5.20 26.25 5.70 27.00 V29\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.48\" stroke-width=\"0.35\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g id=\"lx-colosseum\"><path d=\"M0 44 V27 Q8 24.5 15 25 L15 27.5 L17.5 28.5 L18 31 L20.5 32 L22 34 V44\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.72\" stroke-width=\"0.532\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M0 29.5 H15 M0 32 H18 M0 32.8 H18 M0 38 H22 M0 38.8 H22\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.6\" stroke-width=\"0.392\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M1.00 44 V41.20 Q1.90 39.85 2.80 41.20 V44 M3.60 44 V41.20 Q4.50 39.85 5.40 41.20 V44 M6.20 44 V41.20 Q7.10 39.85 8.00 41.20 V44 M8.80 44 V41.20 Q9.70 39.85 10.60 41.20 V44 M11.40 44 V41.20 Q12.30 39.85 13.20 41.20 V44 M14.00 44 V41.20 Q14.90 39.85 15.80 41.20 V44 M16.60 44 V41.20 Q17.50 39.85 18.40 41.20 V44 M19.20 44 V41.20 Q20.10 39.85 21.00 41.20 V44 M1.00 37.6 V35.00 Q1.80 33.80 2.60 35.00 V37.6 M3.60 37.6 V35.00 Q4.40 33.80 5.20 35.00 V37.6 M6.20 37.6 V35.00 Q7.00 33.80 7.80 35.00 V37.6 M8.80 37.6 V35.00 Q9.60 33.80 10.40 35.00 V37.6 M11.40 37.6 V35.00 Q12.20 33.80 13.00 35.00 V37.6 M14.00 37.6 V35.00 Q14.80 33.80 15.60 35.00 V37.6 M16.60 37.6 V35.00 Q17.40 33.80 18.20 35.00 V37.6 M1.3 31.2 h1 v-1.2 h-1 Z M3.9 31.2 h1 v-1.2 h-1 Z M6.5 31.2 h1 v-1.2 h-1 Z M9.1 31.2 h1 v-1.2 h-1 Z M11.7 31.2 h1 v-1.2 h-1 Z M14.3 31.2 h1 v-1.2 h-1 Z M3.25 44 V38.8 M3.25 38 V32.8 M5.85 44 V38.8 M5.85 38 V32.8 M8.45 44 V38.8 M8.45 38 V32.8 M11.05 44 V38.8 M11.05 38 V32.8 M13.65 44 V38.8 M13.65 38 V32.8 M16.25 44 V38.8 M16.25 38 V32.8\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.5\" stroke-width=\"0.336\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g id=\"lx-brandenburg\"><path d=\"M0 44 V29 H18 V44 M-0.4 29 H18.4 M-0.4 30 H18.4 M0.6 29 V25.5 H17.4 V29 M0.6 25.5 H17.4 M7 25.5 V22.6 H11 V25.5\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.72\" stroke-width=\"0.532\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M1.5 30 V44 M2.3 30 V44 M4 30 V44 M4.8 30 V44 M6.5 30 V44 M7.3 30 V44 M10.7 30 V44 M11.5 30 V44 M13.2 30 V44 M14 30 V44 M15.7 30 V44 M16.5 30 V44 M1.6 26.3 V28.2 M2.8 26.3 V28.2 M4.0 26.3 V28.2 M5.2 26.3 V28.2 M6.4 26.3 V28.2 M7.6 26.3 V28.2 M8.8 26.3 V28.2 M10.0 26.3 V28.2 M11.2 26.3 V28.2 M12.4 26.3 V28.2 M13.6 26.3 V28.2 M14.8 26.3 V28.2 M16.0 26.3 V28.2 M7.6 22.6 L8.2 20.6 L8.9 21 L9.3 22.6 M9.2 22.6 L9.8 20.4 L10.5 20.9 L10.6 22.6 M8.6 20.4 L9 18.6 L9.4 20.4\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.52\" stroke-width=\"0.336\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g id=\"lx-towerbridge\"><path d=\"M3 44 V16 H9 V44 M19 44 V16 H25 V44 M3 16 L6 9 L9 16 M19 16 L22 9 L25 16 M6 9 V6.8 M22 9 V6.8 M9 19.5 H19 M9 21.6 H19 M0 36 H3 M9 36 H19 M25 36 H28 M0 37 H3 M9 37 H19 M25 37 H28\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.72\" stroke-width=\"0.532\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M2.5 16 V13.4 L3 12.6 L3.5 13.4 V16 M8.5 16 V13.4 L9 12.6 L9.5 13.4 V16 M18.5 16 V13.4 L19 12.6 L19.5 13.4 V16 M24.5 16 V13.4 L25 12.6 L25.5 13.4 V16 M0 30 Q1.5 34 3 34 M25 34 Q26.5 34 28 30 M9 24 Q14 32 19 24 M10.5 26.6 V36 M12.2 28.4 V36 M14 29 V36 M15.8 28.4 V36 M17.5 26.6 V36 M5.00 44 V38.50 Q6.00 37.00 7.00 38.50 V44 M21.00 44 V38.50 Q22.00 37.00 23.00 38.50 V44 M4.30 24.5 V21.00 Q4.80 20.25 5.30 21.00 V24.5 M6.70 24.5 V21.00 Q7.20 20.25 7.70 21.00 V24.5 M20.30 24.5 V21.00 Q20.80 20.25 21.30 21.00 V24.5 M22.70 24.5 V21.00 Q23.20 20.25 23.70 21.00 V24.5 M4.30 31 V27.50 Q4.80 26.75 5.30 27.50 V31 M6.70 31 V27.50 Q7.20 26.75 7.70 27.50 V31 M20.30 31 V27.50 Q20.80 26.75 21.30 27.50 V31 M22.70 31 V27.50 Q23.20 26.75 23.70 27.50 V31 M9.6 19.5 V21.6 M11.4 19.5 V21.6 M13.2 19.5 V21.6 M15 19.5 V21.6 M16.8 19.5 V21.6\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.5\" stroke-width=\"0.336\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g id=\"lx-sagrada\"><path d=\"M0 44 V24 L1.5 10 L3 24 L4.5 4 L6 24 L7.5 2 L9 24 L10.5 12 L12 24 V44 M0 30 H12 M0 31 H12 M4.5 4 V2.4 M7.5 2 V0.4 M6.9 1 H8.1 M3.9 3 H5.1\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.72\" stroke-width=\"0.532\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M4 44 V36 Q6 31.6 8 36 V44 M5 44 V37 Q6 35 7 37 V44 M1.5 15 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M1.5 18 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M1.5 21 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M4.5 9 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M4.5 12 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M4.5 15 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M4.5 18 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M4.5 21 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M7.5 7 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M7.5 10 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M7.5 13 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M7.5 16 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M7.5 19 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M7.5 22 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M10.5 16 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M10.5 19 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M10.5 22 m-0.3 0 a0.3 0.5 0 1 0 0.6 0 a0.3 0.5 0 1 0 -0.6 0 M1 33 V42 M11 33 V42 M2.6 33 V42 M9.4 33 V42\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.52\" stroke-width=\"0.336\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g id=\"lx-arc\"><path d=\"M0 44 V20 H16 V44 M5 44 V31 Q8 25.6 11 31 V44 M-0.3 20 H16.3 M0 22.6 H16 M0 24 H16 M-0.3 25.2 H16.3\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.72\" stroke-width=\"0.532\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M1.2 32 h3 v6 h-3 Z M11.8 32 h3 v6 h-3 Z M1.2 27 h3 v3.6 h-3 Z M11.8 27 h3 v3.6 h-3 Z M5.6 31 Q8 26.8 10.4 31 M1.0 20.6 V22.2 M2.1 20.6 V22.2 M3.2 20.6 V22.2 M4.3 20.6 V22.2 M5.4 20.6 V22.2 M6.5 20.6 V22.2 M7.6 20.6 V22.2 M8.7 20.6 V22.2 M9.8 20.6 V22.2 M10.9 20.6 V22.2 M12.0 20.6 V22.2 M13.1 20.6 V22.2 M14.2 20.6 V22.2 M15.3 20.6 V22.2\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.52\" stroke-width=\"0.336\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g id=\"lx-notredame\"><path d=\"M0 44 V14 H6 V44 M12 44 V14 H18 V44 M6 44 V24 H12 V44 M-0.3 14 H6.3 M11.7 14 H18.3 M0 22 H18 M0 23 H18 M8.6 24 L9 6 L9.4 24\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.72\" stroke-width=\"0.532\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M9 28.6 m-2.3 0 a2.3 2.3 0 1 0 4.6 0 a2.3 2.3 0 1 0 -4.6 0\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.7\" stroke-width=\"0.42\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M9 28.6 L11.30 28.60 M9 28.6 L10.63 30.23 M9 28.6 L9.00 30.90 M9 28.6 L7.37 30.23 M9 28.6 L6.70 28.60 M9 28.6 L7.37 26.97 M9 28.6 L9.00 26.30 M9 28.6 L10.63 26.97 M1.40 21 V16.10 Q2.00 15.20 2.60 16.10 V21 M3.40 21 V16.10 Q4.00 15.20 4.60 16.10 V21 M12.40 21 V16.10 Q13.00 15.20 13.60 16.10 V21 M14.40 21 V16.10 Q15.00 15.20 15.60 16.10 V21 M0.90 44 V38.10 Q3.00 34.95 5.10 38.10 V44 M13.00 44 V38.10 Q15.10 34.95 17.20 38.10 V44 M6.90 44 V37.60 Q9.00 34.45 11.10 37.60 V44 M0 33 H18 M0.8 23 V21.8 M1.7 23 V21.8 M2.6 23 V21.8 M3.5 23 V21.8 M4.4 23 V21.8 M5.3 23 V21.8 M6.2 23 V21.8 M7.1 23 V21.8 M8.0 23 V21.8 M8.9 23 V21.8 M9.8 23 V21.8 M10.7 23 V21.8 M11.6 23 V21.8 M12.5 23 V21.8 M13.4 23 V21.8 M14.3 23 V21.8 M15.2 23 V21.8 M16.1 23 V21.8 M17.0 23 V21.8 M17.9 23 V21.8\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.52\" stroke-width=\"0.336\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g id=\"lx-cologne\"><path d=\"M0 44 V20 L3 1.5 L6 20 V44 M6 44 V20 L9 1.5 L12 20 V44 M0 20 H12 M0 30 H12\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.72\" stroke-width=\"0.532\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M0.30 6 L0.80 5.2 M11.70 6 L11.20 5.2 M0.77 9 L1.27 8.2 M11.23 9 L10.73 8.2 M1.24 12 L1.74 11.2 M10.76 12 L10.26 11.2 M1.71 15 L2.21 14.2 M10.29 15 L9.79 14.2 M2.19 18 L2.69 17.2 M9.81 18 L9.31 17.2 M1.00 29 V22.10 Q1.60 21.20 2.20 22.10 V29 M3.80 29 V22.10 Q4.40 21.20 5.00 22.10 V29 M7.00 29 V22.10 Q7.60 21.20 8.20 22.10 V29 M9.80 29 V22.10 Q10.40 21.20 11.00 22.10 V29 M1.00 44 V33.60 Q1.60 32.70 2.20 33.60 V44 M9.80 44 V33.60 Q10.40 32.70 11.00 33.60 V44 M4.00 44 V36.00 Q6.00 33.00 8.00 36.00 V44 M3 1.5 V0 M9 1.5 V0\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.52\" stroke-width=\"0.336\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g><g id=\"lx-parthenon\"><path d=\"M0 33 L10 27.4 L20 33 Z M0 33 V35.4 H20 V33 M-0.6 42.6 H20.6 M-1.2 44 H21.2\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.72\" stroke-width=\"0.532\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path d=\"M0.80 35.4 V42.6 M1.70 35.4 V42.6 M3.20 35.4 V42.6 M4.10 35.4 V42.6 M5.60 35.4 V42.6 M6.50 35.4 V42.6 M8.00 35.4 V42.6 M8.90 35.4 V42.6 M10.40 35.4 V42.6 M11.30 35.4 V42.6 M12.80 35.4 V42.6 M13.70 35.4 V42.6 M15.20 35.4 V42.6 M16.10 35.4 V42.6 M17.60 35.4 V42.6 M18.50 35.4 V42.6 M0 34.2 H20 M3 32 L10 28.4 L17 32\" fill=\"none\" stroke=\"#EFE9DC\" stroke-opacity=\"0.52\" stroke-width=\"0.336\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g>";
   var HALAL = "<svg viewBox=\"0 0 100 100\" aria-hidden=\"true\" role=\"img\"><circle cx=\"50\" cy=\"50\" r=\"47\" fill=\"none\" stroke=\"#EFE9DC\" stroke-width=\"1.6\"/><circle cx=\"50\" cy=\"50\" r=\"42.5\" fill=\"none\" stroke=\"#EFE9DC\" stroke-width=\".8\"/><path fill=\"#EFE9DC\" d=\"M34.42 36.82Q34.36 36.4 34.29 35.96Q34.21 35.53 34.12 35.05Q33.82 34.3 34.12 33.67L34.9 32.17Q35.29 31.36 35.74 32.56Q36.22 33.85 37.12 34.57Q37.75 35.08 37.24 35.74L36.49 36.7Q36.55 37.72 36.7 39.07Q36.85 40.42 37.06 42.16Q37.3 43.9 37.42 45.23Q37.54 46.57 37.6 47.53Q37.81 50.71 36.79 53.23Q36.07 54.91 33.52 56.05Q32.26 56.62 31.12 56.9Q29.98 57.19 28.93 57.16Q24.7 57.1 23.5 54.01Q23.08 52.9 23.08 51.67Q23.08 48.25 25.21 45.58Q25.63 45.04 25.9 45.31Q26.17 45.55 25.84 46.15Q24.43 48.7 24.55 49.99Q24.88 53.29 29.89 53.11Q34.24 52.96 36.04 50.77Q35.65 48.01 35.4 45.97Q35.14 43.93 34.99 42.58Q34.87 41.23 34.72 39.79Q34.57 38.35 34.42 36.82ZM53.17 48.79Q53.41 50.65 52.9 50.8Q52.48 50.95 52.21 49.99Q50.86 45.7 46.33 43L46 43.72Q45.52 44.71 44.23 43.84L41.62 42.04Q40.84 41.53 40.84 40.78L40.78 37.57Q40.78 36.85 41.23 36.61Q41.71 36.34 42.4 36.67Q52.36 41.83 53.17 48.79ZM54.67 35.11 55.63 33.88Q56.32 32.95 56.41 34.75Q57.04 45.01 57.85 48.16Q58.66 51.34 60.16 51.67Q61.39 51.97 61.09 54.22Q60.94 55.24 60.04 55.24Q57.28 55.24 56.32 51.79Q55.81 49.93 55.54 47.26Q55.42 45.91 55.35 45.11Q55.27 44.32 55.24 44.11Q54.52 50.68 51.55 54.28Q50.26 55.78 48.4 56.14Q47.14 56.38 45.91 56.53Q44.68 56.68 43.45 56.74Q42.94 56.74 42.88 56.38Q42.82 55.99 43.18 55.87Q50.38 53.32 52.45 49.6Q53.56 47.44 54.01 43.54Q54.25 41.59 54.34 40.1Q54.43 38.62 54.4 37.6Q54.34 35.53 54.67 35.11ZM69.55 47.65Q70.15 47.92 70.95 48.19Q71.74 48.46 72.76 48.7Q74.77 49.18 76.39 49.15Q77.23 49.18 76.72 50.23L75.79 52.03Q75.49 52.66 74.92 52.6Q74.14 52.51 73.26 52.57Q72.37 52.63 71.38 52.78Q70.39 52.93 69.52 53.15Q68.65 53.38 67.87 53.62Q65.62 54.37 64.21 54.76Q62.8 55.15 62.2 55.21Q61.63 55.24 61.15 55.25Q60.67 55.27 60.28 55.24L59.89 55.18V51.85Q60.16 50.59 61.72 48.28Q63.31 45.91 64.84 46Q65.44 46.03 66.61 46.45Q67.78 46.87 69.55 47.65ZM67.33 50.41Q65.71 49.63 63.94 49.63Q62.11 49.63 61.15 51.58Q62.35 51.52 63.9 51.23Q65.44 50.95 67.33 50.41Z\"/><line x1=\"31\" y1=\"63.5\" x2=\"69\" y2=\"63.5\" stroke=\"#C9CFDA\" stroke-width=\".7\"/><path fill=\"#C9CFDA\" d=\"M32.91 70.84V78.48H31.69V75.22H27.93V78.48H26.7V70.84H27.93V74.06H31.69V70.84ZM37.22 78.48 40.6 70.52H40.67L44.05 78.48H42.65L40.27 72.43L41.15 71.84L38.42 78.48ZM39.34 75.63H41.95L42.37 76.68H38.97ZM48.36 70.84H49.59V77.3H53.34V78.48H48.36ZM57.17 78.48 60.55 70.52H60.63L64.01 78.48H62.6L60.23 72.43L61.1 71.84L58.37 78.48ZM59.29 75.63H61.91L62.33 76.68H58.93ZM68.31 70.84H69.54V77.3H73.3V78.48H68.31Z\"/>";
   var QR = {"n": 25, "d": "M0 0h7v1h-7zM13 0h1v1h-1zM16 0h1v1h-1zM18 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h2v1h-2zM13 1h4v1h-4zM18 1h1v1h-1zM24 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h2v1h-2zM12 2h1v1h-1zM15 2h1v1h-1zM18 2h1v1h-1zM20 2h3v1h-3zM24 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM10 3h1v1h-1zM13 3h2v1h-2zM18 3h1v1h-1zM20 3h3v1h-3zM24 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h2v1h-2zM16 4h1v1h-1zM18 4h1v1h-1zM20 4h3v1h-3zM24 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM11 5h5v1h-5zM18 5h1v1h-1zM24 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h7v1h-7zM8 7h3v1h-3zM12 7h1v1h-1zM14 7h3v1h-3zM0 8h1v1h-1zM2 8h5v1h-5zM9 8h2v1h-2zM12 8h3v1h-3zM18 8h5v1h-5zM2 9h1v1h-1zM4 9h1v1h-1zM7 9h1v1h-1zM12 9h1v1h-1zM16 9h1v1h-1zM19 9h1v1h-1zM23 9h1v1h-1zM5 10h2v1h-2zM8 10h1v1h-1zM11 10h2v1h-2zM14 10h6v1h-6zM21 10h1v1h-1zM23 10h2v1h-2zM2 11h3v1h-3zM8 11h3v1h-3zM12 11h1v1h-1zM14 11h2v1h-2zM17 11h4v1h-4zM24 11h1v1h-1zM1 12h1v1h-1zM4 12h1v1h-1zM6 12h2v1h-2zM9 12h2v1h-2zM13 12h3v1h-3zM17 12h2v1h-2zM20 12h1v1h-1zM22 12h3v1h-3zM0 13h1v1h-1zM3 13h1v1h-1zM5 13h1v1h-1zM7 13h2v1h-2zM10 13h1v1h-1zM12 13h1v1h-1zM14 13h1v1h-1zM16 13h1v1h-1zM19 13h1v1h-1zM21 13h1v1h-1zM23 13h1v1h-1zM0 14h1v1h-1zM2 14h3v1h-3zM6 14h1v1h-1zM10 14h1v1h-1zM13 14h1v1h-1zM15 14h1v1h-1zM17 14h1v1h-1zM19 14h3v1h-3zM23 14h2v1h-2zM0 15h1v1h-1zM4 15h2v1h-2zM9 15h1v1h-1zM12 15h1v1h-1zM15 15h1v1h-1zM19 15h2v1h-2zM24 15h1v1h-1zM0 16h1v1h-1zM2 16h3v1h-3zM6 16h5v1h-5zM12 16h2v1h-2zM15 16h6v1h-6zM22 16h1v1h-1zM8 17h2v1h-2zM13 17h1v1h-1zM16 17h1v1h-1zM20 17h2v1h-2zM0 18h7v1h-7zM10 18h5v1h-5zM16 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM22 18h3v1h-3zM0 19h1v1h-1zM6 19h1v1h-1zM8 19h2v1h-2zM11 19h1v1h-1zM16 19h1v1h-1zM20 19h2v1h-2zM24 19h1v1h-1zM0 20h1v1h-1zM2 20h3v1h-3zM6 20h1v1h-1zM8 20h1v1h-1zM10 20h11v1h-11zM22 20h1v1h-1zM0 21h1v1h-1zM2 21h3v1h-3zM6 21h1v1h-1zM8 21h3v1h-3zM12 21h1v1h-1zM14 21h5v1h-5zM20 21h5v1h-5zM0 22h1v1h-1zM2 22h3v1h-3zM6 22h1v1h-1zM8 22h1v1h-1zM10 22h1v1h-1zM12 22h1v1h-1zM14 22h1v1h-1zM16 22h2v1h-2zM21 22h2v1h-2zM24 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM11 23h2v1h-2zM14 23h8v1h-8zM24 23h1v1h-1zM0 24h7v1h-7zM8 24h2v1h-2zM11 24h1v1h-1zM13 24h3v1h-3zM17 24h8v1h-8z"};
-  var DISH = {"palinger-burger": {"ru": ["Палингер Бургер", "Голландская булочка, голландский угорь; в пикантном — спайси соус"], "en": ["Palinger Burger", "Dutch bun, Dutch eel; spicy sauce in the spicy one"], "price": "65 000 / 70 000", "variant": {"ru": "классический / пикантный", "en": "classic / spicy"}, "soldOut": false}, "eel-benedict": {"ru": ["Бенедикт с угрём", "Бриошь, угорь, яйцо пятиминутка, авокадо, крем-чиз, голландез"], "en": ["Eel Benedict", "Brioche, eel, soft-boiled egg, avocado, cream cheese, hollandaise"], "price": "87 000", "variant": null, "soldOut": false}, "salmon-benedict": {"ru": ["Бенедикт с лососем", "Бриошь, слабосолёный лосось, яйцо пятиминутка, авокадо, крем-чиз, голландез"], "en": ["Salmon Benedict", "Brioche, cured salmon, soft-boiled egg, avocado, cream cheese, hollandaise"], "price": "81 000", "variant": null, "soldOut": false}, "churros": {"ru": ["Чурос", "Хрустящие чурос, сахар с корицей, шоколадный соус"], "en": ["Churros", "Crispy churros, cinnamon sugar, chocolate sauce"], "price": "65 000 / 85 000", "variant": {"ru": "S / M", "en": "S / M"}, "soldOut": false}, "pancakes": {"ru": ["Панкейки", "Пышные панкейки, кленовый сироп, сливочное масло, свежие ягоды, сахарная пудра"], "en": ["Pancakes", "Fluffy pancakes, maple syrup, butter, fresh berries, powdered sugar"], "price": "59 000", "variant": {"ru": "обычные / мини", "en": "regular / mini"}, "soldOut": false}, "crepes": {"ru": ["Крепс", "Тонкие блинчики, фисташковый или шоколадный крем, сахарная пудра"], "en": ["Crêpes", "Thin crêpes, pistachio or chocolate cream, powdered sugar"], "price": "69 000", "variant": {"ru": "фисташковый / шоколадный", "en": "pistachio / chocolate"}, "soldOut": false}, "honey-raf": {"ru": ["Медовый раф", ""], "en": ["Honey Raf", ""], "price": "56 000", "variant": null, "soldOut": false}, "cup-brulee": {"ru": ["Кап-брюле", ""], "en": ["Cup Brûlée", ""], "price": "41 000", "variant": null, "soldOut": false}, "condensed-cappuccino": {"ru": ["Капучино со сгущёнкой", ""], "en": ["Condensed Milk Cappuccino", ""], "price": "41 000", "variant": null, "soldOut": false}, "cinnabon-coffee": {"ru": ["Кофе «Синнабон»", ""], "en": ["Cinnabon Coffee", ""], "price": "43 000", "variant": null, "soldOut": false}, "lem-watermelon-melon": {"ru": ["Арбуз-дыня", ""], "en": ["Watermelon & Melon", ""], "price": "40 000 / 70 000", "variant": {"ru": "0,5 л / 1 л", "en": "0.5 L / 1 L"}, "soldOut": false}, "lem-lime-cherry": {"ru": ["Лайм-вишня", ""], "en": ["Lime & Cherry", ""], "price": "53 000 / 87 000", "variant": {"ru": "0,5 л / 1 л", "en": "0.5 L / 1 L"}, "soldOut": false}, "lem-raspberry-passion": {"ru": ["Малина-маракуйя", ""], "en": ["Raspberry & Passion Fruit", ""], "price": "57 000 / 97 000", "variant": {"ru": "0,5 л / 1 л", "en": "0.5 L / 1 L"}, "soldOut": false}, "lem-mango-passion": {"ru": ["Манго-маракуйя", ""], "en": ["Mango & Passion Fruit", ""], "price": "57 000 / 97 000", "variant": {"ru": "0,5 л / 1 л", "en": "0.5 L / 1 L"}, "soldOut": false}, "mojito-classic": {"ru": ["Мохито классический", ""], "en": ["Classic Mojito", ""], "price": "47 000 / 77 000", "variant": {"ru": "0,5 л / 1 л", "en": "0.5 L / 1 L"}, "soldOut": false}, "mojito-strawberry": {"ru": ["Мохито клубничный", ""], "en": ["Strawberry Mojito", ""], "price": "51 000 / 83 000", "variant": {"ru": "0,5 л / 1 л", "en": "0.5 L / 1 L"}, "soldOut": false}, "lem-berry-mix": {"ru": ["Ягодный микс", ""], "en": ["Berry Mix", ""], "price": "53 000 / 87 000", "variant": {"ru": "0,5 л / 1 л", "en": "0.5 L / 1 L"}, "soldOut": false}};   // fallback copy of the menu; prices are refreshed from the live menu page
+  var DISH = {"churros": {"ru": ["Чурос", "Хрустящие чурос, сахар с корицей, шоколадный соус"], "en": ["Churros", "Crispy churros, cinnamon sugar, chocolate sauce"], "price": "65 000 / 85 000", "variant": {"ru": "S / M", "en": "S / M"}, "soldOut": false}, "pancakes": {"ru": ["Панкейки", "Пышные панкейки, кленовый сироп, сливочное масло, свежие ягоды, сахарная пудра"], "en": ["Pancakes", "Fluffy pancakes, maple syrup, butter, fresh berries, powdered sugar"], "price": "59 000", "variant": {"ru": "обычные / мини", "en": "regular / mini"}, "soldOut": false}, "crepes": {"ru": ["Крепс", "Тонкие блинчики, фисташковый или шоколадный крем, сахарная пудра"], "en": ["Crêpes", "Thin crêpes, pistachio or chocolate cream, powdered sugar"], "price": "69 000", "variant": {"ru": "фисташковый / шоколадный", "en": "pistachio / chocolate"}, "soldOut": false}, "ice-cream": {"ru": ["Мороженое", "Fresh milk, crafted with joy"], "en": ["Ice cream", ""], "price": "35 000 / 65 000", "variant": null, "soldOut": false}};   // fallback copy of the menu; prices are refreshed from the live menu page
 
   /* ================= settings ================= */
 
@@ -212,7 +212,7 @@
 
   /* ================= scenes (seconds inside the 80 s loop) ================= */
 
-  // 0–11 brand: the logo glides from the right screen into the left one
+  // 0–10 brand: the logo glides from the right screen into the left one
   function sBrand(a, b) {
     var sc = scene(wall, a, b);
     var lw = 760, lh = Math.round(lw * 486 / 461.9);
@@ -238,80 +238,95 @@
     track(hair, { t: [[a + 0.6, { sx: 0 }, 'io'], [a + 3.2, { sx: 1 }]] });
   }
 
-  // 11–22 signature: Palinger Burger
-  function sSignature(a, b) {
-    var sc = scene(wall, a, b);
-    kickers(sc, a, 'Фирменное', 'Signature');
-    var c = card(sc, CL, 560, 900, 675, 'palinger-burger');
-    glide(c, a + 0.25, XR + 80, 0, 2.3);
-    dishText(col(sc, XR + 70, 500, SW - 140, 860), 'palinger-burger', { ru: 112, en: 34, desc: 46, variant: 44, price: 92 }, a + 1.3);
+  // ice cream cups are cut from the LED banner: navy background with a soft glow, edges faded out
+  function cup(parent, cx, y, w, n) {
+    var ht = Math.round(w * 1400 / 1140);
+    var im = place(h('img', 'abs ice', parent), Math.round(cx - w / 2), y, w, ht);
+    im.alt = ''; im.src = BASE + 'img/ice-' + n + '.jpg';
+    if (im.decode) im.decode().catch(function () {});
+    return im;
   }
-
-  // 22–33 breakfast: two plates drop in, one on each screen
-  function sBreakfast(a, b) {
-    var sc = scene(wall, a, b);
-    kickers(sc, a, 'Завтраки', 'Breakfast');
-    [['eel-benedict', CL, 0], ['salmon-benedict', CR, 1]].forEach(function (d) {
-      var c = card(sc, d[1], 330, 880, 660, d[0]);
-      glide(c, a + 0.2 + d[2] * 0.3, 0, -1150, 1.7);
-      dishText(col(sc, d[1] - 470, 1040, 940, 520), d[0], { ru: 88, en: 28, desc: 38, price: 76 }, a + 1.4 + d[2] * 0.3);
+  // rise from below, then bob gently until the scene ends
+  function riseAndFloat(e, t, b, phase) {
+    var f = [[t, { y: 1000 }, 'out'], [t + 1.7, { y: 0 }, 'io']], up = true;
+    for (var k = t + 1.7 + phase; k < b; k += 1.6) { f.push([k, { y: up ? -14 : 0 }, 'io']); up = !up; }
+    track(e, { o: [[t, 0, 'out'], [t + 0.5, 1]], t: f });
+  }
+  function caption(parent, cls, text, size) {
+    var e = h('div', cls, parent, esc(text));
+    if (size) e.style.fontSize = size + 'px';
+    return e;
+  }
+  function riseAll(list, t) {
+    list.forEach(function (p, i) {
+      if (i) p.style.marginTop = (p.className === 'en' ? 0.55 : p.className.indexOf('price') === 0 ? 0.42 : 0.62) + 'em';
+      rise(p, t + i * 0.14, 34);
     });
   }
 
-  // 33–45 desserts: churros cup crosses the seam, pancakes and crêpes slide in on the right
-  function sDesserts(a, b) {
+  // 10–22 ice cream: four cups rise from below, two on each screen, and keep floating
+  function sIceCream(a, b) {
+    var sc = scene(wall, a, b);
+    kickers(sc, a, 'Мороженое', 'Ice cream');
+    [[CL - 250, 1], [CL + 250, 3], [CR - 250, 2], [CR + 250, 4]].forEach(function (c, i) {
+      riseAndFloat(cup(sc, c[0], 354, 585, c[1]), a + 0.3 + i * 0.18, b, i * 0.4);
+    });
+    var l = col(sc, 70, 1080, SW - 140, 440), r = col(sc, XR + 70, 1080, SW - 140, 440);
+    riseAll([field(l, 'ru', 'ice-cream', 'ru', 120), field(l, 'en', 'ice-cream', 'en', 34)], a + 1.6);
+    riseAll([field(r, 'desc', 'ice-cream', 'desc', 50), field(r, 'price', 'ice-cream', 'price', 92)], a + 1.9);
+  }
+
+  // 22–33 churros: the cup crosses the seam from the right screen, its text appears on the right
+  function sChurros(a, b) {
     var sc = scene(wall, a, b);
     kickers(sc, a, 'Десерты', 'Desserts');
-    var c = card(sc, CL, 320, 510, 680, 'churros');
+    var c = card(sc, CL, 470, 600, 800, 'churros');
     glide(c, a + 0.25, XR + 80, 0, 2.3);
-    dishText(col(sc, 70, 1046, SW - 140, 514), 'churros', { ru: 96, en: 30, desc: 38, variant: 38, price: 76 }, a + 1.4);
-
-    [['pancakes', 470], ['crepes', 990]].forEach(function (d, i) {
-      var g = h('div', 'grp', sc);
-      card(g, XR + 60 + 266, d[1], 500, 375, d[0]);
-      dishText(col(g, XR + 620, d[1], 410, 407), d[0], { ru: 72, en: 24, variant: 34, price: 60 }, a + 1.6 + i * 0.4);
-      glide(g, a + 0.6 + i * 0.35, 760, 0, 1.9);
-    });
+    dishText(col(sc, XR + 70, 470, SW - 140, 832), 'churros', { ru: 120, en: 36, desc: 48, variant: 46, price: 96 }, a + 1.3);
   }
 
-  // 45–56 coffee: four cups arrive as one train from the left
-  function sCoffee(a, b) {
+  // 33–44 pancakes: big ones on the left, mini ones with ice cream on the right
+  function sPancakes(a, b) {
     var sc = scene(wall, a, b);
-    kickers(sc, a, 'Кофе', 'Coffee');
-    var xs = [CL - 255, CL + 255, CR - 255, CR + 255];
-    ['honey-raf', 'cup-brulee', 'condensed-cappuccino', 'cinnabon-coffee'].forEach(function (id, i) {
-      var g = h('div', 'grp', sc);
-      card(g, xs[i], 470, 410, 547, id);
-      var tc = col(g, xs[i] - 240, 1080, 480, 420);
-      tc.style.justifyContent = 'flex-start';
-      dishText(tc, id, { ru: 58, en: 22, price: 62 }, a + 2.0 + i * 0.12);
-      glide(g, a + 0.2 + (3 - i) * 0.07, -(W + 400), 0, 2.6);
-    });
+    kickers(sc, a, 'Панкейки', 'Pancakes');
+    var c1 = card(sc, CL, 340, 900, 675, 'pancakes'), c2 = card(sc, CR, 340, 900, 675, 'mini-pancakes');
+    glide(c1, a + 0.2, -1100, 0, 1.9);
+    glide(c2, a + 0.45, 1100, 0, 1.9);
+    var l = col(sc, 70, 1050, SW - 140, 500), r = col(sc, XR + 70, 1050, SW - 140, 500);
+    riseAll([field(l, 'ru', 'pancakes', 'ru', 92), field(l, 'en', 'pancakes', 'en', 30), field(l, 'desc', 'pancakes', 'desc', 40), field(l, 'price', 'pancakes', 'price', 80)], a + 1.4);
+    riseAll([caption(r, 'ru', 'Мини-панкейки', 92), caption(r, 'en', 'Mini pancakes', 30), caption(r, 'desc', 'с мороженым, ягодами и шоколадом', 40), field(r, 'price', 'pancakes', 'price', 80)], a + 1.7);
   }
 
-  // 56–70 lemonades: a conveyor of seven glasses that steps across both screens
-  function sLemonades(a, b) {
+  // 44–55 crêpes: two close-ups swap screens on the way in, crossing at the seam
+  function sCrepes(a, b) {
     var sc = scene(wall, a, b);
-    kickers(sc, a, 'Лимонады', 'Lemonades', '0,5 л  /  1 л', '0.5 L  /  1 L');
-    var D = W / 4, belt = h('div', 'grp', sc);
-    ['lem-mango-passion', 'lem-raspberry-passion', 'lem-watermelon-melon', 'mojito-classic',
-      'mojito-strawberry', 'lem-lime-cherry', 'lem-berry-mix'].forEach(function (id, k) {
-      var x = D / 2 + k * D;
-      card(belt, x, 480, 420, 560, id);
-      var c = col(belt, x - D / 2 + 16, 1098, D - 32, 330);
-      c.style.justifyContent = 'flex-start';
-      dishText(c, id, { ru: 56, en: 21, price: 52 }, a + 2.0);
-    });
-    track(belt, { t: [
-      [a + 0.1, { x: 4 * D }, 'out'], [a + 2.1, { x: 0 }],
-      [a + 4.4, { x: 0 }, 'io'], [a + 5.2, { x: -D }],
-      [a + 7.5, { x: -D }, 'io'], [a + 8.3, { x: -2 * D }],
-      [a + 10.6, { x: -2 * D }, 'io'], [a + 11.4, { x: -3 * D }],
-      [a + 13.2, { x: -3 * D }, 'in'], [b, { x: -4 * D }]
-    ] });
+    kickers(sc, a, 'Крепс', 'Crêpes');
+    var c1 = card(sc, CL, 330, 600, 800, 'crepes-1'), c2 = card(sc, CR, 330, 600, 800, 'crepes-2');
+    glide(c1, a + 0.2, XR, 0, 2.4);
+    glide(c2, a + 0.45, -XR, 0, 2.4);
+    var l = col(sc, 70, 1180, SW - 140, 380), r = col(sc, XR + 70, 1180, SW - 140, 380);
+    riseAll([field(l, 'ru', 'crepes', 'ru', 100), field(l, 'en', 'crepes', 'en', 32), field(l, 'desc', 'crepes', 'desc', 40)], a + 1.6);
+    riseAll([field(r, 'var', 'crepes', 'var', 46), field(r, 'price', 'crepes', 'price', 92)], a + 1.9);
   }
 
-  // 70–80 menu QR on the left, address on the right
+  // 55–68 to go: the branded cup on the left, tray and box on the right
+  function sToGo(a, b) {
+    var sc = scene(wall, a, b);
+    kickers(sc, a, 'С собой', 'To go');
+    var c = card(sc, CL, 340, 600, 800, 'churros-cup');
+    glide(c, a + 0.2, 0, 1100, 1.9);
+    var l = col(sc, 70, 1200, SW - 140, 340);
+    riseAll([field(l, 'ru', 'churros', 'ru', 96), caption(l, 'desc', 'в фирменном стакане', 46)], a + 1.5);
+    [['to-go-tray', 350, 'Мини-панкейки с мороженым'], ['to-go-box', 975, 'Десерт и кофе']].forEach(function (d, i) {
+      var g = h('div', 'grp', sc);
+      card(g, CR, d[1], 660, 495, d[0]);
+      var t = col(g, XR + 70, d[1] + 535, SW - 140, 60);
+      caption(t, 'var', d[2], 46);
+      glide(g, a + 0.5 + i * 0.35, 1100, 0, 1.9);
+    });
+  }
+
+  // 68–80 menu QR on the left, address on the right
   function sInfo(a, b) {
     var sc = scene(wall, a, b);
     kickers(sc, a, 'Меню онлайн', 'Menu online');
@@ -416,13 +431,13 @@
   } else if (TEST) {
     buildTest();
   } else {
-    sBrand(0, 11);
-    sSignature(11, 22);
-    sBreakfast(22, 33);
-    sDesserts(33, 45);
-    sCoffee(45, 56);
-    sLemonades(56, 70);
-    sInfo(70, 80);
+    sBrand(0, 10);
+    sIceCream(10, 22);
+    sChurros(22, 33);
+    sPancakes(33, 44);
+    sCrepes(44, 55);
+    sToGo(55, 68);
+    sInfo(68, 80);
   }
   fill();
 
