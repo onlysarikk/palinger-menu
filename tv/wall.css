@@ -1,0 +1,89 @@
+/* Palinger TV wall. One design screen = 1080 × 1920 (a 43" TV hung vertically). */
+:root {
+  --navy: #1F2C47;
+  --cream: #EFE9DC;
+  --f-serif: "Cormorant Garamond", Georgia, serif;
+  --f-caps: "Cinzel", "Times New Roman", serif;
+}
+html, body { margin: 0; height: 100%; background: #000; }
+body { overflow: hidden; cursor: none; -webkit-font-smoothing: antialiased; }
+
+#view { position: fixed; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; background: #000; }
+#stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; transform-origin: 0 0; background: var(--navy); }
+#wall {
+  position: absolute; top: 0; height: 1920px; color: var(--cream); overflow: hidden;
+  background: radial-gradient(ellipse 60% 55% at 50% 44%, #283960 0%, #1F2C47 58%, #18223A 100%);
+  opacity: 0; transition: opacity 1.2s ease;
+}
+#wall.on { opacity: 1; }
+#wall * { box-sizing: border-box; }
+
+.abs { position: absolute; }
+.scene { position: absolute; left: 0; top: 0; height: 1920px; visibility: hidden; }
+
+/* frame around the whole wall: it runs across the seam at the top and bottom, never down the middle */
+.frame { position: absolute; border: 2px solid rgba(239, 233, 220, .55); pointer-events: none; }
+.frame.in { border-width: 1px; border-color: rgba(239, 233, 220, .28); }
+
+.skyclip { position: absolute; overflow: hidden; }
+.skyclip svg { position: absolute; left: 0; top: 0; overflow: visible; }
+
+/* framed photo, like a print */
+.card { position: absolute; padding: 14px; border: 2px solid rgba(239, 233, 220, .85); background: #1A253D; box-shadow: 0 36px 70px rgba(4, 8, 18, .5); }
+.card::after { content: ""; position: absolute; left: 6px; top: 6px; right: 6px; bottom: 6px; border: 1px solid rgba(239, 233, 220, .3); pointer-events: none; }
+.card img { display: block; }
+
+.col { position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.col > * { margin: 0; }
+.grp { position: absolute; left: 0; top: 0; }
+
+.kick { position: absolute; display: flex; align-items: center; justify-content: center; text-align: center; white-space: nowrap; }
+.kick b { font: 600 44px/1 var(--f-serif); letter-spacing: .3em; text-transform: uppercase; margin-right: -.3em; }
+.kick.en b { font: 400 36px/1 var(--f-caps); letter-spacing: .32em; margin-right: -.32em; }
+.kick::before, .kick::after { content: ""; width: 90px; height: 1px; background: rgba(239, 233, 220, .6); margin: 0 34px; }
+.sub { position: absolute; text-align: center; font: italic 500 40px/1 var(--f-serif); opacity: .78; }
+
+.ru { font: 600 104px/1 var(--f-serif); letter-spacing: .005em; }
+.en { font: 400 32px/1.25 var(--f-caps); letter-spacing: .2em; opacity: .78; text-transform: uppercase; }
+.desc { font: italic 500 44px/1.22 var(--f-serif); opacity: .88; }
+.var { font: italic 600 42px/1.2 var(--f-serif); opacity: .92; }
+.price { font: 600 86px/1 var(--f-caps); letter-spacing: .02em; white-space: nowrap; font-variant-numeric: lining-nums; }
+.price .sl { font-weight: 400; opacity: .6; margin: 0 .12em; }
+.price small { font: italic 500 .46em var(--f-serif); letter-spacing: .02em; margin-left: .32em; opacity: .8; }
+.price.out { font: italic 500 52px/1 var(--f-serif); opacity: .75; }
+.rule { width: 200px; height: 2px; background: rgba(239, 233, 220, .5); }
+
+.tag { font: italic 600 128px/1.02 var(--f-serif); }
+.made { font: 400 34px/1 var(--f-caps); letter-spacing: .42em; margin-right: -.42em; opacity: .85; }
+.by { font: italic 500 58px/1 var(--f-serif); opacity: .9; }
+.addr { font: 400 38px/1.3 var(--f-caps); letter-spacing: .16em; }
+.halal svg { display: block; width: 100%; height: 100%; }
+.qr { position: absolute; background: var(--cream); padding: 72px; box-shadow: 0 36px 70px rgba(4, 8, 18, .5); }
+.qr svg { display: block; width: 100%; height: 100%; }
+
+/* sync test */
+.tbar { position: absolute; top: 0; width: 48px; height: 1920px; background: #FFD400; }
+.tline { position: absolute; left: 0; height: 2px; background: rgba(255, 212, 0, .55); }
+.tcount { position: absolute; top: 760px; width: 1080px; text-align: center; font: 600 260px/1 var(--f-caps); color: #FFD400; font-variant-numeric: tabular-nums lining-nums; }
+.tlabel { position: absolute; top: 560px; width: 1080px; text-align: center; font: 600 64px/1 var(--f-serif); letter-spacing: .2em; }
+
+/* status line, shown for a while after start and after any key or click */
+#hud {
+  position: absolute; left: 60px; right: 60px; bottom: 60px; padding: 22px 28px; border-radius: 10px;
+  background: rgba(5, 8, 16, .82); color: #EFE9DC; font: 500 30px/1.45 Arial, Helvetica, sans-serif;
+  opacity: 0; transition: opacity .4s ease; pointer-events: none; z-index: 10;
+}
+#hud.on { opacity: 1; }
+#hud b { color: #FFD400; font-weight: 700; }
+#hud .warn { color: #FF9C6B; }
+
+/* preview page (/tv/): the whole wall on one screen */
+body.all { cursor: auto; background: #0B0F19; color: #EFE9DC; font: 16px/1.5 Arial, Helvetica, sans-serif; }
+body.all .ov { position: fixed; left: 0; right: 0; top: 0; padding: 14px 16px 12px; background: #0B0F19; z-index: 5; }
+body.all .ov h1 { margin: 0 0 6px; font: 600 22px/1.2 var(--f-caps); letter-spacing: .08em; }
+body.all .ov p { margin: 0 0 10px; max-width: 980px; color: rgba(239, 233, 220, .8); }
+body.all .ov nav { display: flex; flex-wrap: wrap; gap: 8px; }
+body.all .ov a { color: #0B0F19; background: #EFE9DC; text-decoration: none; padding: 8px 14px; border-radius: 6px; font-weight: 700; }
+body.all .ov a.alt { background: transparent; color: #EFE9DC; border: 1px solid rgba(239, 233, 220, .5); }
+body.all #view { background: #0B0F19; }
+.bezel { position: absolute; top: 0; height: 1920px; background: #04060B; }
