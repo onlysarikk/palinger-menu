@@ -95,3 +95,6 @@ body.all #view { background: #0B0F19; }
   mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent), linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
   mask-composite: intersect;
 }
+
+/* flavour name under each ice cream cup */
+.flavour { font: italic 600 50px/1 var(--f-serif); letter-spacing: .01em; }
